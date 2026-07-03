@@ -252,6 +252,99 @@
         }
 
         .popup-captura.flex { display: flex; }
+
+        /* ─── Nav ancorada ─── */
+        .site-nav-links::-webkit-scrollbar { display: none; }
+        .site-nav-links { scrollbar-width: none; }
+
+        /* ─── Card hover genérico ─── */
+        .card-hover { transition: transform .35s ease, border-color .35s ease; }
+        .card-hover:hover { transform: translateY(-4px); }
+
+        /* ─── Photo cards (Diagnóstico) ─── */
+        .photo-card {
+            position: relative;
+            border-radius: 1.25rem;
+            overflow: hidden;
+            min-height: 14rem;
+            border: 1px solid rgba(226,190,124,.15);
+        }
+        .photo-card-img {
+            position: absolute; inset: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: .4;
+            transition: transform .6s ease, opacity .4s ease;
+        }
+        .photo-card:hover .photo-card-img { transform: scale(1.06); opacity: .5; }
+        .photo-card-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(180deg, rgba(5,5,6,.55) 0%, rgba(5,5,6,.88) 75%, rgba(5,5,6,.96) 100%);
+        }
+        .photo-card-content {
+            position: relative; z-index: 1;
+            padding: 2rem; height: 100%;
+            display: flex; flex-direction: column; justify-content: flex-end;
+        }
+
+        /* ─── Module cards (Módulos) ─── */
+        .mod-card {
+            border-radius: 1.25rem;
+            overflow: hidden;
+            background: linear-gradient(145deg, rgba(25,25,27,.95), rgba(10,10,11,.98));
+            border: 1px solid rgba(226,190,124,.15);
+            transition: transform .35s ease, border-color .35s ease;
+        }
+        .mod-card:hover { transform: translateY(-4px); border-color: rgba(226,190,124,.4); }
+        .mod-card-media { position: relative; aspect-ratio: 16/9; }
+        .mod-card-media img { width: 100%; height: 100%; object-fit: cover; }
+        .mod-card-number {
+            position: absolute; top: .875rem; left: .875rem;
+            width: 2.25rem; height: 2.25rem; border-radius: .625rem;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: .875rem;
+            background: linear-gradient(135deg, #E2BE7C 0%, #A38846 100%);
+            color: #050506;
+            box-shadow: 0 6px 16px rgba(0,0,0,.35);
+        }
+        .mod-card-body { padding: 1.5rem; }
+        .mod-card-title { font-size: 1.125rem; font-weight: 700; color: #FDFEFE; margin-bottom: .625rem; }
+
+        /* ─── Mentor stat badge ─── */
+        .mentor-stat-badge {
+            position: absolute; top: -1.25rem; right: -1.25rem; z-index: 20;
+            width: 6rem; height: 6rem; border-radius: 50%;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            background: linear-gradient(135deg, #E2BE7C 0%, #A38846 100%);
+            box-shadow: 0 12px 32px rgba(0,0,0,.4), 0 0 0 6px rgba(5,5,6,1);
+            text-align: center;
+        }
+        .mentor-stat-number { font-size: 1.5rem; font-weight: 800; line-height: 1; color: #050506; }
+        .mentor-stat-label {
+            font-size: .5625rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: .05em; line-height: 1.15; color: #050506; margin-top: .125rem;
+        }
+        @media (max-width: 767px) {
+            .mentor-stat-badge { width: 5rem; height: 5rem; top: -1rem; right: -.5rem; }
+            .mentor-stat-number { font-size: 1.25rem; }
+        }
+
+        /* ─── Pricing inline badge ─── */
+        .pricing-inline-badge {
+            display: inline-flex; align-items: center; gap: .5rem;
+            padding: .5rem 1rem; border-radius: 9999px;
+            font-size: .625rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase;
+            background: rgba(226,190,124,.1); border: 1px solid rgba(226,190,124,.25);
+            color: #E2BE7C; margin-bottom: 1rem;
+        }
+
+        /* ─── Consultant CTA ─── */
+        .consultant-cta-img {
+            width: 6.5rem; height: 6.5rem; border-radius: 9999px;
+            object-fit: cover;
+            border: 2px solid rgba(226,190,124,.35);
+            flex-shrink: 0;
+        }
     </style>
 </head>
 <body class="bg-brand-bg text-brand-textPrimary font-sans antialiased custom-cursor">
@@ -313,6 +406,23 @@
         </div>
     </header>
 
+    <!-- NAV ANCORADA -->
+    <nav id="site-nav" class="sticky top-0 z-30 bg-brand-bg/95 backdrop-blur-md border-b border-white/5">
+        <div class="container mx-auto px-6 max-w-content flex items-center justify-between gap-6 py-3">
+            <div class="site-nav-links flex items-center gap-6 text-[11px] font-bold uppercase tracking-widest text-brand-textSecondary overflow-x-auto">
+                <a href="#problema" class="hover:text-brand-primary transition-colors whitespace-nowrap">A Dor</a>
+                <a href="#conteudo" class="hover:text-brand-primary transition-colors whitespace-nowrap">O Evento</a>
+                <a href="#mentor" class="hover:text-brand-primary transition-colors whitespace-nowrap">Mentor</a>
+                <a href="#galeria" class="hover:text-brand-primary transition-colors whitespace-nowrap">Experiência</a>
+                <a href="#modulos" class="hover:text-brand-primary transition-colors whitespace-nowrap">Módulos</a>
+                <a href="#ingressos" class="hover:text-brand-primary transition-colors whitespace-nowrap">Ingressos</a>
+            </div>
+            <button type="button" onclick="abrirPopup()" class="btn-gold shrink-0 font-bold uppercase tracking-widest text-[11px] px-5 py-2.5 rounded-lg whitespace-nowrap">
+                Garantir vaga
+            </button>
+        </div>
+    </nav>
+
     <!-- DOR -->
     <section id="problema" class="py-24 bg-brand-surface relative overflow-hidden border-y border-white/5">
         <div class="absolute inset-0 z-0 pointer-events-none opacity-[0.06]">
@@ -328,22 +438,38 @@
                     Isso não acontece por falta de esforço. Acontece por falta de estrutura estratégica.
                 </p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="pain-card rounded-2xl p-8" data-aos="fade-right">
-                    <span class="pain-number block mb-4">1</span>
-                    <p class="text-brand-textPrimary text-lg leading-relaxed">Seu negócio depende demais de você para funcionar</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="photo-card card-hover" data-aos="fade-right">
+                    <img src="assets/asset%201.webp" alt="" class="photo-card-img" loading="lazy" aria-hidden="true">
+                    <div class="photo-card-overlay"></div>
+                    <div class="photo-card-content">
+                        <span class="pain-number block mb-3">1</span>
+                        <p class="text-brand-textPrimary text-lg leading-relaxed">Seu negócio depende demais de você para funcionar</p>
+                    </div>
                 </div>
-                <div class="pain-card rounded-2xl p-8" data-aos="fade-left">
-                    <span class="pain-number block mb-4">2</span>
-                    <p class="text-brand-textPrimary text-lg leading-relaxed">Você ainda resolve coisas que o seu time deveria resolver</p>
+                <div class="photo-card card-hover" data-aos="fade-left">
+                    <img src="assets/asset%202.webp" alt="" class="photo-card-img" loading="lazy" aria-hidden="true">
+                    <div class="photo-card-overlay"></div>
+                    <div class="photo-card-content">
+                        <span class="pain-number block mb-3">2</span>
+                        <p class="text-brand-textPrimary text-lg leading-relaxed">Você ainda resolve coisas que o seu time deveria resolver</p>
+                    </div>
                 </div>
-                <div class="pain-card rounded-2xl p-8" data-aos="fade-right" data-aos-delay="100">
-                    <span class="pain-number block mb-4">3</span>
-                    <p class="text-brand-textPrimary text-lg leading-relaxed">Você trabalha muito, mas sabe que poderia estar faturando mais</p>
+                <div class="photo-card card-hover" data-aos="fade-right" data-aos-delay="100">
+                    <img src="assets/asset%203.webp" alt="" class="photo-card-img" loading="lazy" aria-hidden="true">
+                    <div class="photo-card-overlay"></div>
+                    <div class="photo-card-content">
+                        <span class="pain-number block mb-3">3</span>
+                        <p class="text-brand-textPrimary text-lg leading-relaxed">Você trabalha muito, mas sabe que poderia estar faturando mais</p>
+                    </div>
                 </div>
-                <div class="pain-card rounded-2xl p-8" data-aos="fade-left" data-aos-delay="100">
-                    <span class="pain-number block mb-4">4</span>
-                    <p class="text-brand-textPrimary text-lg leading-relaxed">Você sente que está perto de algo grande, mas ainda não destravou</p>
+                <div class="photo-card card-hover" data-aos="fade-left" data-aos-delay="100">
+                    <img src="assets/asset%204.webp" alt="" class="photo-card-img" loading="lazy" aria-hidden="true">
+                    <div class="photo-card-overlay"></div>
+                    <div class="photo-card-content">
+                        <span class="pain-number block mb-3">4</span>
+                        <p class="text-brand-textPrimary text-lg leading-relaxed">Você sente que está perto de algo grande, mas ainda não destravou</p>
+                    </div>
                 </div>
             </div>
             <div class="text-center mt-12" data-aos="fade-up">
@@ -469,6 +595,10 @@
                 <div class="relative" data-aos="fade-right">
                     <div class="absolute inset-0 bg-brand-primary/20 rounded-3xl blur-[60px]"></div>
                     <img src="assets/asset%2012.webp" alt="Mateus Ribeiro" class="relative z-10 w-full rounded-3xl border border-white/10 object-cover aspect-[4/5]" loading="lazy">
+                    <div class="mentor-stat-badge">
+                        <span class="mentor-stat-number">20+</span>
+                        <span class="mentor-stat-label">anos de<br>atuação</span>
+                    </div>
                 </div>
                 <div data-aos="fade-left">
                     <p class="section-eyebrow section-eyebrow--gold">Autoridade</p>
@@ -533,25 +663,45 @@
     <section id="modulos" class="py-24 bg-brand-bg">
         <div class="container mx-auto px-6 max-w-content">
             <div class="grid sm:grid-cols-2 gap-6">
-                <div class="module-card rounded-2xl p-8" data-aos="fade-up">
-                    <p class="text-brand-primary text-xs font-bold uppercase tracking-widest mb-2">Módulo 1</p>
-                    <h3 class="text-xl font-bold mb-3">Diagnóstico de Realidade</h3>
-                    <p class="text-brand-textSecondary text-sm leading-relaxed">Leitura fria de onde seu negócio está perdendo dinheiro, energia e foco.</p>
+                <div class="mod-card" data-aos="fade-up">
+                    <div class="mod-card-media">
+                        <img src="assets/asset%207.webp" alt="" loading="lazy" aria-hidden="true">
+                        <span class="mod-card-number">01</span>
+                    </div>
+                    <div class="mod-card-body">
+                        <h3 class="mod-card-title">Diagnóstico de Realidade</h3>
+                        <p class="text-brand-textSecondary text-sm leading-relaxed">Leitura fria de onde seu negócio está perdendo dinheiro, energia e foco.</p>
+                    </div>
                 </div>
-                <div class="module-card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="100">
-                    <p class="text-brand-primary text-xs font-bold uppercase tracking-widest mb-2">Módulo 2</p>
-                    <h3 class="text-xl font-bold mb-3">Onde está travando o crescimento</h3>
-                    <p class="text-brand-textSecondary text-sm leading-relaxed">Identificação clara entre urgência e prioridade, esforço e resultado.</p>
+                <div class="mod-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="mod-card-media">
+                        <img src="assets/asset%208.webp" alt="" loading="lazy" aria-hidden="true">
+                        <span class="mod-card-number">02</span>
+                    </div>
+                    <div class="mod-card-body">
+                        <h3 class="mod-card-title">Onde está travando o crescimento</h3>
+                        <p class="text-brand-textSecondary text-sm leading-relaxed">Identificação clara entre urgência e prioridade, esforço e resultado.</p>
+                    </div>
                 </div>
-                <div class="module-card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="200">
-                    <p class="text-brand-primary text-xs font-bold uppercase tracking-widest mb-2">Módulo 3</p>
-                    <h3 class="text-xl font-bold mb-3">Clareza de Prioridades</h3>
-                    <p class="text-brand-textSecondary text-sm leading-relaxed">O que organizar primeiro para o negócio voltar a crescer.</p>
+                <div class="mod-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="mod-card-media">
+                        <img src="assets/asset%209.webp" alt="" loading="lazy" aria-hidden="true">
+                        <span class="mod-card-number">03</span>
+                    </div>
+                    <div class="mod-card-body">
+                        <h3 class="mod-card-title">Clareza de Prioridades</h3>
+                        <p class="text-brand-textSecondary text-sm leading-relaxed">O que organizar primeiro para o negócio voltar a crescer.</p>
+                    </div>
                 </div>
-                <div class="module-card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="300">
-                    <p class="text-brand-primary text-xs font-bold uppercase tracking-widest mb-2">Módulo 4</p>
-                    <h3 class="text-xl font-bold mb-3">Plano de 90 Dias</h3>
-                    <p class="text-brand-textSecondary text-sm leading-relaxed">Direção prática para aplicar a partir do dia seguinte ao evento.</p>
+                <div class="mod-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="mod-card-media">
+                        <img src="assets/asset%2010.webp" alt="" loading="lazy" aria-hidden="true">
+                        <span class="mod-card-number">04</span>
+                    </div>
+                    <div class="mod-card-body">
+                        <h3 class="mod-card-title">Plano de 90 Dias</h3>
+                        <p class="text-brand-textSecondary text-sm leading-relaxed">Direção prática para aplicar a partir do dia seguinte ao evento.</p>
+                    </div>
                 </div>
             </div>
             <div class="text-center mt-12" data-aos="fade-up">
@@ -651,6 +801,10 @@
                         </div>
                     </div>
                     <div class="text-center md:text-right">
+                        <div class="pricing-inline-badge">
+                            <i class="fas fa-bolt text-[10px]"></i>
+                            Vagas Limitadas
+                        </div>
                         <p class="text-xs font-bold uppercase tracking-widest text-brand-textMuted mb-2">Investimento</p>
                         <p class="text-5xl md:text-6xl font-black text-brand-primary mb-2">R$147<span class="text-2xl">,00</span></p>
                         <p class="text-sm text-brand-textSecondary mb-6">Mogi Mirim/SP · 29/07/2026</p>
@@ -682,6 +836,17 @@
             <button type="button" onclick="abrirPopup()" class="btn-shimmer btn-gold font-bold uppercase tracking-wider text-sm py-4 px-10 rounded-xl hover:-translate-y-1 transition-all" data-aos="fade-up">
                 Eu quero essa clareza para meu negócio
             </button>
+
+            <div class="consultant-cta glass-strong rounded-2xl p-6 md:p-8 mt-10 flex flex-col md:flex-row items-center gap-6 text-left" data-aos="fade-up">
+                <img src="assets/asset%2012.webp" alt="Equipe do Impulse Empresarial" class="consultant-cta-img" loading="lazy">
+                <div class="flex-1">
+                    <p class="text-sm font-bold uppercase tracking-widest text-brand-primary mb-2">Fale com a nossa equipe</p>
+                    <p class="text-brand-textSecondary text-sm mb-5">Ficou com alguma dúvida antes de decidir? Fale direto com a equipe do Impulse pelo WhatsApp.</p>
+                    <a href="https://api.whatsapp.com/send/?phone=5511942371409&text=Ol%C3%A1%2C+vim+pelo+site+do+Impulse+Empresarial+Mogi+Mirim&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2 text-brand-textPrimary hover:text-brand-bg transition-all duration-300 text-sm font-bold uppercase tracking-wider border border-white/10 px-6 py-3 rounded-lg hover:bg-brand-goldLight hover:border-brand-goldLight hover:shadow-[0_0_20px_rgba(226,190,124,0.25)] hover:-translate-y-0.5">
+                        <i class="fab fa-whatsapp text-brand-goldLight group-hover:text-brand-bg text-lg transition-colors duration-300"></i> Falar com a Equipe
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
