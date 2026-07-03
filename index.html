@@ -8,9 +8,8 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link rel="preload" href="assets/fonts/avant-ique-corporate-logo-geometric-grotesk-font-2026-04-07-06-16-08-utc/Avantique%20Main%20Files/WOFF2/Avantique-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/nova-pro-2026-04-07-06-13-42-utc/NovaPro_EE/NovaPro-Regular.otf" as="font" type="font/otf" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <script>
@@ -25,60 +24,93 @@
                             goldLight: '#E2BE7C',
                             goldDeep: '#A38846',
                             brownDark: '#704323',
+                            brownMid: '#946240',
+                            light: '#E7E6F6',
                             primary: '#E2BE7C',
                             primaryHover: '#A38846',
                             accent: '#A38846',
                             textPrimary: '#FDFEFE',
                             textSecondary: '#A1A0A4',
-                            textMuted: '#6b6a6e',
-                            success: '#4ade80',
-                            danger: '#f87171',
+                            textMuted: '#A1A0A4',
                             border: 'rgba(255, 255, 255, 0.1)'
                         }
                     },
                     fontFamily: {
-                        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-                        display: ['Playfair Display', 'Georgia', 'serif'],
+                        sans: ['Nova Pro', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+                        display: ['Avantique', 'sans-serif'],
                     },
                     animation: {
                         shimmer: 'shimmer 1.6s infinite',
-                        marquee: 'marquee 55s linear infinite',
-                        'marquee-reverse': 'marquee-reverse 55s linear infinite',
                         pulse: 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'glow-pulse': 'glow-pulse 4s ease-in-out infinite',
                     },
                     keyframes: {
                         shimmer: {
                             '0%': { transform: 'translateX(0)' },
                             '100%': { transform: 'translateX(340%)' }
                         },
-                        marquee: {
-                            '0%': { transform: 'translateX(0)' },
-                            '100%': { transform: 'translateX(-50%)' }
-                        },
-                        'marquee-reverse': {
-                            '0%': { transform: 'translateX(-50%)' },
-                            '100%': { transform: 'translateX(0)' }
+                        'glow-pulse': {
+                            '0%, 100%': { opacity: '0.55' },
+                            '50%': { opacity: '0.9' }
                         }
                     },
-                    maxWidth: { content: '1300px' }
+                    maxWidth: { content: '1200px' }
                 }
             }
         }
     </script>
 
     <style>
+        @font-face {
+            font-family: 'Nova Pro';
+            src: url('assets/fonts/nova-pro-2026-04-07-06-13-42-utc/NovaPro_EE/NovaPro-Regular.otf') format('opentype');
+            font-weight: 400; font-style: normal; font-display: swap;
+        }
+        @font-face {
+            font-family: 'Nova Pro';
+            src: url('assets/fonts/nova-pro-2026-04-07-06-13-42-utc/NovaPro_EE/NovaPro-Bold.otf') format('opentype');
+            font-weight: 700; font-style: normal; font-display: swap;
+        }
+        @font-face {
+            font-family: 'Avantique';
+            src: url('assets/fonts/avant-ique-corporate-logo-geometric-grotesk-font-2026-04-07-06-16-08-utc/Avantique%20Main%20Files/WOFF2/Avantique-Bold.woff2') format('woff2');
+            font-weight: 700 900; font-style: normal; font-display: swap;
+        }
+        @font-face {
+            font-family: 'Avantique';
+            src: url('assets/fonts/avant-ique-corporate-logo-geometric-grotesk-font-2026-04-07-06-16-08-utc/Avantique%20Main%20Files/WOFF2/Avantique-Semibold.woff2') format('woff2');
+            font-weight: 600; font-style: normal; font-display: swap;
+        }
+
         html { scrollbar-width: thin; scrollbar-color: #A38846 #050506; }
         ::-webkit-scrollbar { width: 10px; }
         ::-webkit-scrollbar-track { background: #050506; }
-        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #E2BE7C, #A38846); border-radius: 9999px; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #E2BE7C 0%, #A38846 55%, #704323 100%); border-radius: 9999px; border: 2px solid #050506; }
 
-        h1, h2, h3 { font-family: 'Inter', sans-serif; font-weight: 800; }
+        h1, h2, h3, h4 { font-family: 'Avantique', sans-serif; font-weight: 700; }
 
+        .glass {
+            background: linear-gradient(145deg, rgba(30,30,32,.55), rgba(12,12,14,.45));
+            backdrop-filter: blur(18px);
+            border: 1px solid rgba(226,190,124,.18);
+            box-shadow: 0 8px 32px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.04);
+        }
         .glass-strong {
             background: linear-gradient(145deg, rgba(30,30,32,.82), rgba(20,20,22,.72));
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255,255,255,.08);
             box-shadow: 0 8px 32px rgba(0,0,0,.25);
+        }
+        .glass-glow {
+            background: linear-gradient(160deg, rgba(25,25,27,.75), rgba(8,8,10,.85));
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(226,190,124,.28);
+            box-shadow: 0 0 40px rgba(226,190,124,.08), 0 20px 50px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.05);
+        }
+        .glass-glow:hover {
+            border-color: rgba(226,190,124,.5);
+            box-shadow: 0 0 50px rgba(226,190,124,.16), 0 24px 56px rgba(0,0,0,.5);
+            transform: translateY(-4px);
         }
 
         .btn-gold {
@@ -86,112 +118,147 @@
             color: #050506;
         }
         .btn-gold:hover {
-            box-shadow: 0 0 40px rgba(163,136,70,.45);
+            box-shadow: 0 0 40px rgba(163,136,70,.5);
         }
+        .btn-pill {
+            border-radius: 9999px;
+            padding: 1rem 2.25rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            font-size: .8125rem;
+            transition: all .3s ease;
+        }
+        .btn-pill:hover { transform: translateY(-2px); }
 
         .btn-shimmer { position: relative; overflow: hidden; }
         .btn-shimmer::before {
             content: '';
             position: absolute; top: 0; left: -100%;
             width: 60%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,.22), transparent);
         }
         .btn-shimmer:hover::before { animation: shimmer 1.4s infinite; }
 
         .section-eyebrow {
             font-size: .6875rem; font-weight: 600; letter-spacing: .28em;
-            text-transform: uppercase; color: rgba(161,160,164,.9); margin-bottom: 1rem;
+            text-transform: uppercase; color: rgba(226,190,124,.75); margin-bottom: 1rem;
         }
-        .section-eyebrow--gold { color: rgba(226,190,124,.75); }
-        .title-accent { color: #E2BE7C; font-style: italic; }
+        .title-accent { color: #E2BE7C; }
 
-        .hero-bg-img { object-position: 72% 28%; filter: brightness(1.1) contrast(1.04); }
-        .hero-overlay-left {
-            background: linear-gradient(to right, rgba(5,5,6,.92) 0%, rgba(5,5,6,.55) 42%, rgba(5,5,6,.12) 72%, transparent 100%);
+        /* Hero halo */
+        .hero-halo {
+            position: absolute;
+            left: 50%; top: 42%;
+            transform: translate(-50%, -50%);
+            width: min(90vw, 720px);
+            height: min(90vw, 720px);
+            border-radius: 50%;
+            background:
+                radial-gradient(circle, rgba(226,190,124,.22) 0%, rgba(163,136,70,.1) 28%, transparent 62%),
+                radial-gradient(circle, transparent 42%, rgba(226,190,124,.12) 48%, transparent 58%);
+            filter: blur(2px);
+            animation: glow-pulse 4s ease-in-out infinite;
+            pointer-events: none;
         }
-        .hero-overlay-bottom {
-            background: linear-gradient(to top, rgba(5,5,6,.8) 0%, transparent 60%);
-        }
-        .hero-mobile-visual img { width: 100%; max-height: 52vh; object-fit: cover; object-position: center top; }
-        .hero-mobile-fade {
-            position: absolute; inset: auto 0 0 0; height: 55%;
-            background: linear-gradient(to bottom, transparent, #131313);
-        }
-
-        .pain-card {
+        .hero-halo-ring {
+            position: absolute;
+            left: 50%; top: 42%;
+            transform: translate(-50%, -50%);
+            width: min(70vw, 520px);
+            height: min(70vw, 520px);
+            border-radius: 50%;
             border: 1px solid rgba(226,190,124,.2);
-            background: linear-gradient(145deg, rgba(25,25,27,.9), rgba(5,5,6,.85));
-            transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
+            box-shadow: 0 0 60px rgba(226,190,124,.15), inset 0 0 60px rgba(226,190,124,.06);
+            pointer-events: none;
         }
-        .pain-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(226,190,124,.45);
-            box-shadow: 0 16px 40px rgba(0,0,0,.4);
-        }
-        .pain-number {
-            font-size: clamp(3rem, 6vw, 4.5rem);
-            line-height: 1;
-            color: rgba(226,190,124,.25);
-            font-weight: 900;
+        .frame-glow {
+            border: 1px solid rgba(226,190,124,.35);
+            box-shadow: 0 0 40px rgba(226,190,124,.12), 0 24px 60px rgba(0,0,0,.5);
+            border-radius: 1.25rem;
+            overflow: hidden;
         }
 
-        .compare-card { border-radius: 1.25rem; padding: 2rem; height: 100%; }
-        .compare-card--wrong {
-            background: linear-gradient(165deg, rgba(30,20,20,.95), rgba(15,10,10,.98));
-            border: 1px solid rgba(248,113,113,.2);
+        /* Timeline */
+        .timeline-line {
+            position: absolute;
+            top: 1.25rem; left: 8%; right: 8%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(226,190,124,.45), transparent);
         }
-        .compare-card--right {
-            background: linear-gradient(165deg, rgba(20,25,20,.95), rgba(10,12,10,.98));
-            border: 1px solid rgba(74,222,128,.2);
+        .timeline-node {
+            width: 2.5rem; height: 2.5rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #E2BE7C, #A38846);
+            color: #050506;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: .75rem;
+            box-shadow: 0 0 24px rgba(226,190,124,.4);
+            position: relative; z-index: 2;
         }
 
-        .marquee-mask {
-            mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
-            -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
-        }
-        .marquee-track { display: flex; width: max-content; gap: 1rem; }
-        .marquee-item {
+        /* Method ring */
+        .method-ring {
+            width: min(100%, 420px);
+            aspect-ratio: 1;
+            border-radius: 50%;
+            border: 2px solid rgba(226,190,124,.35);
+            box-shadow: 0 0 80px rgba(226,190,124,.18), inset 0 0 60px rgba(226,190,124,.08);
+            background:
+                radial-gradient(circle at center, rgba(226,190,124,.12) 0%, transparent 55%),
+                radial-gradient(circle at center, transparent 58%, rgba(226,190,124,.08) 62%, transparent 70%);
             position: relative;
-            flex-shrink: 0; width: 18rem; height: 12rem;
-            border-radius: 1rem; overflow: hidden;
-            border: 1px solid rgba(226,190,124,.15);
         }
-        .marquee-item img {
-            position: absolute; inset: 0;
-            display: block; width: 100%; height: 100%;
+        .method-ring::before {
+            content: '';
+            position: absolute; inset: 12%;
+            border-radius: 50%;
+            border: 1px solid rgba(226,190,124,.2);
+        }
+        .method-ring-core {
+            position: absolute; inset: 28%;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(226,190,124,.25), transparent 70%);
+            display: flex; align-items: center; justify-content: center;
+            text-align: center;
+        }
+
+        .grid-divider {
+            border: 1px solid rgba(226,190,124,.12);
+            background: linear-gradient(160deg, rgba(25,25,27,.4), rgba(8,8,10,.6));
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: .75rem;
+            position: relative;
+        }
+        .gallery-grid img {
+            width: 100%; aspect-ratio: 1;
             object-fit: cover;
+            border-radius: 1rem;
+            border: 1px solid rgba(226,190,124,.2);
         }
-
-        .qualify-card {
-            border-radius: 1.75rem; padding: 2px;
-            transition: transform .4s ease;
-        }
-        .qualify-card:hover { transform: translateY(-6px); }
-        .qualify-card--yes {
-            background: linear-gradient(145deg, rgba(226,190,124,.55), rgba(163,136,70,.25));
-        }
-        .qualify-card--no {
-            background: linear-gradient(145deg, rgba(161,160,164,.25), rgba(80,80,85,.15));
-        }
-        .qualify-card-inner {
-            border-radius: 1.65rem; padding: 2rem; height: 100%;
-            background: linear-gradient(165deg, rgba(14,14,16,.98), rgba(5,5,6,.99));
-        }
-
-        .module-card {
-            border: 1px solid rgba(226,190,124,.15);
-            background: linear-gradient(145deg, rgba(25,25,27,.95), rgba(10,10,11,.98));
-            transition: transform .35s ease, border-color .35s ease;
-        }
-        .module-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(226,190,124,.4);
+        .gallery-center-icon {
+            position: absolute;
+            left: 50%; top: 50%;
+            transform: translate(-50%, -50%);
+            width: 3.5rem; height: 3.5rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #E2BE7C, #A38846);
+            color: #050506;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 0 30px rgba(226,190,124,.45), 0 0 0 6px #050506;
+            z-index: 5;
         }
 
         .depoimento-video-frame {
-            position: relative; width: 100%; max-width: 14rem; margin: 0 auto;
+            position: relative; width: 100%;
             aspect-ratio: 9/16; border-radius: 1rem; overflow: hidden;
-            background: #000; box-shadow: 0 12px 32px rgba(0,0,0,.3);
+            background: #000;
+            border: 1px solid rgba(226,190,124,.25);
+            box-shadow: 0 0 30px rgba(226,190,124,.08), 0 16px 40px rgba(0,0,0,.4);
         }
         .depoimento-video-frame iframe,
         .depoimento-video-poster { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
@@ -199,35 +266,77 @@
         .depoimento-play {
             position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
             width: 3.5rem; height: 3.5rem; border-radius: 50%;
-            background: rgba(220,38,38,.9); color: #fff;
+            background: linear-gradient(135deg, #E2BE7C, #A38846);
+            color: #050506;
             display: flex; align-items: center; justify-content: center;
-            pointer-events: none; box-shadow: 0 8px 24px rgba(0,0,0,.4);
+            pointer-events: none;
+            box-shadow: 0 0 24px rgba(226,190,124,.45);
         }
 
         .pricing-card {
-            border-radius: 1.75rem; overflow: hidden;
-            background: linear-gradient(155deg, #1a1a1c, #0a0a0b);
-            border: 1px solid rgba(226,190,124,.25);
-            box-shadow: 0 32px 64px rgba(0,0,0,.5), 0 0 60px rgba(226,190,124,.08);
+            border-radius: 1.5rem;
+            background: rgba(18,18,20,.72);
+            border: 1px solid rgba(255,255,255,.06);
+            box-shadow: 0 24px 48px rgba(0,0,0,.35);
+        }
+        .pricing-badge {
+            display: inline-flex; align-items: center; gap: .4rem;
+            padding: .4rem 1rem; border-radius: 9999px;
+            font-size: .625rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase;
+            color: #E2BE7C;
+            border: 1px solid rgba(226,190,124,.28);
+            background: rgba(226,190,124,.06);
+        }
+        .pricing-meta {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0;
+        }
+        @media (min-width: 768px) {
+            .pricing-meta { grid-template-columns: repeat(3, 1fr); }
+            .pricing-meta-item + .pricing-meta-item {
+                border-left: 1px solid rgba(255,255,255,.06);
+            }
+        }
+        .pricing-meta-item {
+            padding: 1.25rem 1.5rem;
+            text-align: center;
+        }
+        @media (max-width: 767px) {
+            .pricing-meta-item + .pricing-meta-item {
+                border-top: 1px solid rgba(255,255,255,.06);
+            }
+        }
+        .pricing-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(226,190,124,.2), transparent);
+        }
+        .timer-unit {
+            min-width: 4.5rem;
+            text-align: center;
+        }
+        .timer-sep {
+            color: rgba(226,190,124,.25);
+            font-size: 1.5rem;
+            font-weight: 300;
+            line-height: 1;
+            padding-bottom: 1.1rem;
         }
 
-        .faq-section {
-            background: linear-gradient(135deg, #C5A367 0%, #A38846 50%, #946240 100%);
-        }
-        .faq-item { border-bottom: 1px solid rgba(255,255,255,.2); }
+        .faq-item { border-bottom: 1px solid rgba(255,255,255,.08); }
         .faq-question { cursor: pointer; }
         .faq-answer { max-height: 0; overflow: hidden; transition: max-height .4s ease; }
         .faq-item.is-open .faq-answer { max-height: 20rem; }
         .faq-item.is-open .faq-chevron { transform: rotate(180deg); }
 
-        .timer-box {
-            background: rgba(226,190,124,.1);
-            border: 1px solid rgba(226,190,124,.25);
-        }
         .timer-digit {
             font-variant-numeric: tabular-nums;
-            font-size: clamp(1.5rem, 4vw, 2.25rem);
-            font-weight: 800; color: #E2BE7C;
+            font-family: 'Avantique', sans-serif;
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: #E2BE7C;
+            letter-spacing: .04em;
+            line-height: 1;
         }
 
         .sticky-cta {
@@ -235,6 +344,26 @@
             transition: transform .35s ease;
         }
         .sticky-cta.is-visible { transform: translateY(0); }
+
+        .icon-orb {
+            width: 3.5rem; height: 3.5rem;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(226,190,124,.1);
+            border: 1px solid rgba(226,190,124,.3);
+            color: #E2BE7C;
+            box-shadow: 0 0 24px rgba(226,190,124,.15);
+            margin: 0 auto 1.25rem;
+        }
+
+        .pain-icon {
+            width: 2rem; height: 2rem;
+            border-radius: .5rem;
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(148,98,64,.25);
+            color: #E2BE7C;
+            flex-shrink: 0;
+        }
 
         @media (min-width: 1024px) {
             body.custom-cursor { cursor: none; }
@@ -253,98 +382,7 @@
 
         .popup-captura.flex { display: flex; }
 
-        /* ─── Nav ancorada ─── */
-        .site-nav-links::-webkit-scrollbar { display: none; }
-        .site-nav-links { scrollbar-width: none; }
-
-        /* ─── Card hover genérico ─── */
-        .card-hover { transition: transform .35s ease, border-color .35s ease; }
-        .card-hover:hover { transform: translateY(-4px); }
-
-        /* ─── Photo cards (Diagnóstico) ─── */
-        .photo-card {
-            position: relative;
-            border-radius: 1.25rem;
-            overflow: hidden;
-            min-height: 14rem;
-            border: 1px solid rgba(226,190,124,.15);
-        }
-        .photo-card-img {
-            position: absolute; inset: 0;
-            width: 100%; height: 100%;
-            object-fit: cover;
-            opacity: .4;
-            transition: transform .6s ease, opacity .4s ease;
-        }
-        .photo-card:hover .photo-card-img { transform: scale(1.06); opacity: .5; }
-        .photo-card-overlay {
-            position: absolute; inset: 0;
-            background: linear-gradient(180deg, rgba(5,5,6,.55) 0%, rgba(5,5,6,.88) 75%, rgba(5,5,6,.96) 100%);
-        }
-        .photo-card-content {
-            position: relative; z-index: 1;
-            padding: 2rem; height: 100%;
-            display: flex; flex-direction: column; justify-content: flex-end;
-        }
-
-        /* ─── Module cards (Módulos) ─── */
-        .mod-card {
-            border-radius: 1.25rem;
-            overflow: hidden;
-            background: linear-gradient(145deg, rgba(25,25,27,.95), rgba(10,10,11,.98));
-            border: 1px solid rgba(226,190,124,.15);
-            transition: transform .35s ease, border-color .35s ease;
-        }
-        .mod-card:hover { transform: translateY(-4px); border-color: rgba(226,190,124,.4); }
-        .mod-card-media { position: relative; aspect-ratio: 16/9; }
-        .mod-card-media img { width: 100%; height: 100%; object-fit: cover; }
-        .mod-card-number {
-            position: absolute; top: .875rem; left: .875rem;
-            width: 2.25rem; height: 2.25rem; border-radius: .625rem;
-            display: flex; align-items: center; justify-content: center;
-            font-weight: 800; font-size: .875rem;
-            background: linear-gradient(135deg, #E2BE7C 0%, #A38846 100%);
-            color: #050506;
-            box-shadow: 0 6px 16px rgba(0,0,0,.35);
-        }
-        .mod-card-body { padding: 1.5rem; }
-        .mod-card-title { font-size: 1.125rem; font-weight: 700; color: #FDFEFE; margin-bottom: .625rem; }
-
-        /* ─── Mentor stat badge ─── */
-        .mentor-stat-badge {
-            position: absolute; top: -1.25rem; right: -1.25rem; z-index: 20;
-            width: 6rem; height: 6rem; border-radius: 50%;
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            background: linear-gradient(135deg, #E2BE7C 0%, #A38846 100%);
-            box-shadow: 0 12px 32px rgba(0,0,0,.4), 0 0 0 6px rgba(5,5,6,1);
-            text-align: center;
-        }
-        .mentor-stat-number { font-size: 1.5rem; font-weight: 800; line-height: 1; color: #050506; }
-        .mentor-stat-label {
-            font-size: .5625rem; font-weight: 700; text-transform: uppercase;
-            letter-spacing: .05em; line-height: 1.15; color: #050506; margin-top: .125rem;
-        }
-        @media (max-width: 767px) {
-            .mentor-stat-badge { width: 5rem; height: 5rem; top: -1rem; right: -.5rem; }
-            .mentor-stat-number { font-size: 1.25rem; }
-        }
-
-        /* ─── Pricing inline badge ─── */
-        .pricing-inline-badge {
-            display: inline-flex; align-items: center; gap: .5rem;
-            padding: .5rem 1rem; border-radius: 9999px;
-            font-size: .625rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase;
-            background: rgba(226,190,124,.1); border: 1px solid rgba(226,190,124,.25);
-            color: #E2BE7C; margin-bottom: 1rem;
-        }
-
-        /* ─── Consultant CTA ─── */
-        .consultant-cta-img {
-            width: 6.5rem; height: 6.5rem; border-radius: 9999px;
-            object-fit: cover;
-            border: 2px solid rgba(226,190,124,.35);
-            flex-shrink: 0;
-        }
+        .card-lift { transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease; }
     </style>
 </head>
 <body class="bg-brand-bg text-brand-textPrimary font-sans antialiased custom-cursor">
@@ -353,376 +391,427 @@
     <div class="cursor-ring hidden lg:block" id="cursor-ring"></div>
 
     <!-- HERO -->
-    <header id="hero" class="relative overflow-hidden md:min-h-screen md:flex md:items-center md:pt-20 md:pb-16">
-        <div class="hidden md:block absolute inset-0 z-0">
-            <img src="assets/asset%2024.webp" alt="" class="hero-bg-img w-full h-full object-cover" loading="eager">
-            <div class="absolute inset-0 hero-overlay-left"></div>
-            <div class="absolute inset-0 hero-overlay-bottom"></div>
+    <header id="hero" class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-16 pb-16 md:pt-20 md:pb-20">
+        <div class="absolute inset-0 z-0">
+            <img src="assets/asset%2024.webp" alt="" class="w-full h-full object-cover opacity-40" loading="eager" style="object-position: 60% 20%;">
+            <div class="absolute inset-0 bg-gradient-to-b from-brand-bg/70 via-brand-bg/50 to-brand-bg"></div>
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#050506_75%)]"></div>
         </div>
-        <div class="hero-mobile-visual md:hidden relative bg-[#131313]">
-            <img src="assets/asset%2026.webp" alt="" loading="eager">
-            <div class="hero-mobile-fade"></div>
-        </div>
-        <div class="relative z-10 w-full pt-8 pb-12 md:pt-0 md:pb-0 bg-[#131313] md:bg-transparent">
-            <div class="container mx-auto px-6 max-w-content text-center md:text-left">
-                <div data-aos="fade-right">
-                    <img src="assets/asset%200.webp" alt="LEX" class="h-20 md:h-24 w-auto mx-auto md:mx-0 mb-8">
-                    <p class="text-brand-primary text-xs font-bold uppercase tracking-[0.25em] mb-4">Mogi Mirim/SP · 29 de julho de 2026</p>
-                    <h1 class="text-3xl md:text-5xl lg:text-[3.25rem] font-black leading-[1.12] text-brand-textPrimary mb-6 tracking-tight md:max-w-[60%]">
-                        Você já construiu uma empresa. Agora é hora de construir o <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-goldLight to-brand-goldDeep">crescimento que ela merece.</span>
-                    </h1>
-                    <p class="text-lg md:text-xl text-brand-textSecondary max-w-2xl font-light leading-relaxed mb-8 md:mx-0 mx-auto">
-                        Um encontro presencial de um dia para empresários que faturam, têm equipe e responsabilidade, mas sentem que o negócio está operando abaixo do que poderia. Com Mateus Ribeiro.
-                    </p>
-                    <button type="button" onclick="abrirPopup()" class="btn-shimmer btn-gold w-full sm:w-auto font-bold uppercase tracking-wider text-sm py-5 px-8 rounded-xl shadow-[0_0_30px_rgba(163,136,70,.35)] hover:-translate-y-1 transition-all mb-8">
-                        Quero garantir minha vaga em Mogi Mirim por R$147
-                    </button>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-8 border-t border-white/10 max-w-3xl">
-                        <div class="glass-strong rounded-xl p-4 flex items-center gap-3">
-                            <i class="far fa-calendar text-brand-primary text-xl"></i>
-                            <div class="text-left">
-                                <p class="text-[10px] uppercase tracking-widest text-brand-textMuted font-bold">Data</p>
-                                <p class="text-sm font-semibold">29/07/2026</p>
-                            </div>
-                        </div>
-                        <div class="glass-strong rounded-xl p-4 flex items-center gap-3">
-                            <i class="fas fa-map-marker-alt text-brand-primary text-xl"></i>
-                            <div class="text-left">
-                                <p class="text-[10px] uppercase tracking-widest text-brand-textMuted font-bold">Local</p>
-                                <p class="text-sm font-semibold">Mogi Mirim/SP</p>
-                                <p class="text-xs text-brand-textSecondary">[Local a confirmar]</p>
-                            </div>
-                        </div>
-                        <div class="glass-strong rounded-xl p-4 flex items-center gap-3">
-                            <i class="fas fa-users text-brand-primary text-xl"></i>
-                            <div class="text-left">
-                                <p class="text-[10px] uppercase tracking-widest text-brand-textMuted font-bold">Vagas</p>
-                                <p class="text-sm font-semibold">Limitadas</p>
-                            </div>
-                        </div>
+        <div class="hero-halo"></div>
+        <div class="hero-halo-ring"></div>
+
+        <div class="relative z-10 w-full container mx-auto px-6 max-w-content text-center">
+            <div data-aos="fade-up">
+                <img src="assets/asset%200.webp" alt="Impulse Empresarial" class="h-20 md:h-28 w-auto mx-auto mb-8 drop-shadow-[0_0_40px_rgba(226,190,124,.25)]" loading="eager">
+                <p class="text-brand-primary text-xs font-bold uppercase tracking-[0.3em] mb-4">Mogi Mirim/SP · 29 de julho de 2026</p>
+                <h1 class="text-3xl md:text-5xl lg:text-[3.4rem] font-black leading-[1.12] text-brand-textPrimary mb-5 tracking-tight max-w-4xl mx-auto">
+                    Você já construiu uma empresa.<br class="hidden md:block">
+                    Agora é hora de construir o <span class="title-accent">crescimento que ela merece.</span>
+                </h1>
+                <p class="text-base md:text-lg text-brand-textSecondary max-w-2xl mx-auto font-light leading-relaxed mb-8">
+                    Um encontro presencial de um dia para empresários que faturam, têm equipe e responsabilidade, mas sentem que o negócio está operando abaixo do que poderia. Com Mateus Ribeiro.
+                </p>
+                <button type="button" onclick="abrirPopup()" class="btn-shimmer btn-gold btn-pill shadow-[0_0_40px_rgba(163,136,70,.4)] mb-10">
+                    Quero garantir minha vaga por R$147
+                </button>
+
+                <div class="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
+                    <div class="glass rounded-full px-5 py-2.5 flex items-center gap-2.5">
+                        <i class="far fa-calendar text-brand-primary text-sm"></i>
+                        <span class="text-sm font-semibold">29/07/2026</span>
+                    </div>
+                    <div class="glass rounded-full px-5 py-2.5 flex items-center gap-2.5">
+                        <i class="fas fa-map-marker-alt text-brand-primary text-sm"></i>
+                        <span class="text-sm font-semibold">Mogi Mirim/SP</span>
+                        <span class="text-xs text-brand-textSecondary">[Local a confirmar]</span>
+                    </div>
+                    <div class="glass rounded-full px-5 py-2.5 flex items-center gap-2.5">
+                        <i class="fas fa-users text-brand-primary text-sm"></i>
+                        <span class="text-sm font-semibold">Vagas limitadas</span>
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- NAV ANCORADA -->
-    <nav id="site-nav" class="sticky top-0 z-30 bg-brand-bg/95 backdrop-blur-md border-b border-white/5">
-        <div class="container mx-auto px-6 max-w-content flex items-center justify-between gap-6 py-3">
-            <div class="site-nav-links flex items-center gap-6 text-[11px] font-bold uppercase tracking-widest text-brand-textSecondary overflow-x-auto">
-                <a href="#problema" class="hover:text-brand-primary transition-colors whitespace-nowrap">A Dor</a>
-                <a href="#conteudo" class="hover:text-brand-primary transition-colors whitespace-nowrap">O Evento</a>
-                <a href="#mentor" class="hover:text-brand-primary transition-colors whitespace-nowrap">Mentor</a>
-                <a href="#galeria" class="hover:text-brand-primary transition-colors whitespace-nowrap">Experiência</a>
-                <a href="#modulos" class="hover:text-brand-primary transition-colors whitespace-nowrap">Módulos</a>
-                <a href="#ingressos" class="hover:text-brand-primary transition-colors whitespace-nowrap">Ingressos</a>
+    <!-- SHOWCASE -->
+    <section class="py-20 md:py-28 relative">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-goldLight/5 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="container mx-auto px-6 max-w-content relative z-10 text-center">
+            <p class="section-eyebrow" data-aos="fade-up">Diagnóstico</p>
+            <h2 class="text-3xl md:text-4xl font-black text-brand-textPrimary mb-4 max-w-2xl mx-auto" data-aos="fade-up">
+                Seja honesto consigo <span class="title-accent">por um segundo</span>
+            </h2>
+            <p class="text-brand-textSecondary text-lg mb-12 max-w-xl mx-auto" data-aos="fade-up" data-aos-delay="80">
+                Isso não acontece por falta de esforço. Acontece por falta de estrutura estratégica.
+            </p>
+            <div class="frame-glow max-w-4xl mx-auto" data-aos="zoom-in">
+                <img src="assets/asset%206.webp" alt="Impulse Empresarial" class="w-full aspect-[16/9] object-cover" loading="lazy">
             </div>
-            <button type="button" onclick="abrirPopup()" class="btn-gold shrink-0 font-bold uppercase tracking-widest text-[11px] px-5 py-2.5 rounded-lg whitespace-nowrap">
-                Garantir vaga
-            </button>
         </div>
-    </nav>
+    </section>
 
-    <!-- DOR -->
-    <section id="problema" class="py-24 bg-brand-surface relative overflow-hidden border-y border-white/5">
-        <div class="absolute inset-0 z-0 pointer-events-none opacity-[0.06]">
-            <img src="assets/asset%206.webp" alt="" class="w-full h-full object-cover">
-        </div>
-        <div class="container mx-auto px-6 max-w-content relative z-10">
-            <div class="text-center max-w-3xl mx-auto mb-14">
-                <p class="section-eyebrow section-eyebrow--gold" data-aos="fade-up">Diagnóstico</p>
-                <h2 class="text-3xl md:text-4xl font-black text-brand-textPrimary mb-6" data-aos="fade-up">
-                    Seja honesto consigo <span class="title-accent">por um segundo</span>
-                </h2>
-                <p class="text-brand-textSecondary text-lg" data-aos="fade-up" data-aos-delay="100">
-                    Isso não acontece por falta de esforço. Acontece por falta de estrutura estratégica.
-                </p>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div class="photo-card card-hover" data-aos="fade-right">
-                    <img src="assets/asset%201.webp" alt="" class="photo-card-img" loading="lazy" aria-hidden="true">
-                    <div class="photo-card-overlay"></div>
-                    <div class="photo-card-content">
-                        <span class="pain-number block mb-3">1</span>
+    <!-- DOR — 3 cards glass -->
+    <section id="problema" class="py-20 md:py-28 relative overflow-hidden">
+        <div class="container mx-auto px-6 max-w-content">
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="glass-glow rounded-2xl overflow-hidden card-lift" data-aos="fade-up">
+                    <div class="aspect-[4/3] overflow-hidden">
+                        <img src="assets/asset%201.webp" alt="" class="w-full h-full object-cover opacity-80" loading="lazy">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-brand-primary/40 text-4xl font-black font-display block mb-3">01</span>
                         <p class="text-brand-textPrimary text-lg leading-relaxed">Seu negócio depende demais de você para funcionar</p>
                     </div>
                 </div>
-                <div class="photo-card card-hover" data-aos="fade-left">
-                    <img src="assets/asset%202.webp" alt="" class="photo-card-img" loading="lazy" aria-hidden="true">
-                    <div class="photo-card-overlay"></div>
-                    <div class="photo-card-content">
-                        <span class="pain-number block mb-3">2</span>
+                <div class="glass-glow rounded-2xl overflow-hidden card-lift" data-aos="fade-up" data-aos-delay="100">
+                    <div class="aspect-[4/3] overflow-hidden">
+                        <img src="assets/asset%202.webp" alt="" class="w-full h-full object-cover opacity-80" loading="lazy">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-brand-primary/40 text-4xl font-black font-display block mb-3">02</span>
                         <p class="text-brand-textPrimary text-lg leading-relaxed">Você ainda resolve coisas que o seu time deveria resolver</p>
                     </div>
                 </div>
-                <div class="photo-card card-hover" data-aos="fade-right" data-aos-delay="100">
-                    <img src="assets/asset%203.webp" alt="" class="photo-card-img" loading="lazy" aria-hidden="true">
-                    <div class="photo-card-overlay"></div>
-                    <div class="photo-card-content">
-                        <span class="pain-number block mb-3">3</span>
+                <div class="glass-glow rounded-2xl overflow-hidden card-lift" data-aos="fade-up" data-aos-delay="200">
+                    <div class="aspect-[4/3] overflow-hidden">
+                        <img src="assets/asset%203.webp" alt="" class="w-full h-full object-cover opacity-80" loading="lazy">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-brand-primary/40 text-4xl font-black font-display block mb-3">03</span>
                         <p class="text-brand-textPrimary text-lg leading-relaxed">Você trabalha muito, mas sabe que poderia estar faturando mais</p>
                     </div>
                 </div>
-                <div class="photo-card card-hover" data-aos="fade-left" data-aos-delay="100">
-                    <img src="assets/asset%204.webp" alt="" class="photo-card-img" loading="lazy" aria-hidden="true">
-                    <div class="photo-card-overlay"></div>
-                    <div class="photo-card-content">
-                        <span class="pain-number block mb-3">4</span>
-                        <p class="text-brand-textPrimary text-lg leading-relaxed">Você sente que está perto de algo grande, mas ainda não destravou</p>
-                    </div>
-                </div>
+            </div>
+            <div class="glass-glow rounded-2xl p-6 md:p-8 mt-6 max-w-2xl mx-auto text-center" data-aos="fade-up">
+                <span class="text-brand-primary/40 text-4xl font-black font-display block mb-3">04</span>
+                <p class="text-brand-textPrimary text-lg leading-relaxed">Você sente que está perto de algo grande, mas ainda não destravou</p>
             </div>
             <div class="text-center mt-12" data-aos="fade-up">
-                <button type="button" onclick="abrirPopup()" class="btn-shimmer btn-gold font-bold uppercase tracking-wider text-sm py-4 px-10 rounded-xl hover:-translate-y-1 transition-all">
+                <button type="button" onclick="abrirPopup()" class="btn-shimmer btn-gold btn-pill shadow-[0_0_30px_rgba(163,136,70,.35)]">
                     Quero resolver isso em Mogi Mirim
                 </button>
             </div>
         </div>
     </section>
 
-    <!-- COMPARAÇÃO -->
-    <section id="comparacao" class="py-24 bg-brand-bg relative overflow-hidden">
+    <!-- SPLIT — raiz do problema -->
+    <section id="comparacao" class="py-20 md:py-28 relative overflow-hidden">
+        <div class="absolute right-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-goldLight/5 rounded-full blur-[100px] pointer-events-none"></div>
         <div class="container mx-auto px-6 max-w-content">
-            <div class="text-center max-w-3xl mx-auto mb-14">
-                <p class="section-eyebrow" data-aos="fade-up">A raiz do problema</p>
-                <h2 class="text-2xl md:text-4xl font-black text-brand-textPrimary leading-tight" data-aos="fade-up">
-                    Por que trabalhar mais não está funcionando. Nunca vai ser <span class="title-accent">sem isso</span>
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <div data-aos="fade-right">
+                    <p class="section-eyebrow">A raiz do problema</p>
+                    <h2 class="text-3xl md:text-4xl font-black text-brand-textPrimary leading-tight mb-8">
+                        Por que trabalhar mais não está funcionando. Nunca vai ser <span class="title-accent">sem isso</span>
+                    </h2>
+                    <div class="space-y-8 mb-10">
+                        <div class="glass-glow rounded-2xl p-6">
+                            <div class="flex items-center gap-3 mb-5">
+                                <span class="pain-icon"><i class="fas fa-times text-xs"></i></span>
+                                <h3 class="text-lg font-bold text-brand-textPrimary">O que você acha que é o problema</h3>
+                            </div>
+                            <ul class="space-y-3 text-brand-textSecondary">
+                                <li class="flex items-start gap-3"><i class="fas fa-times text-brand-textMuted mt-1 shrink-0"></i> Precisa vender mais</li>
+                                <li class="flex items-start gap-3"><i class="fas fa-times text-brand-textMuted mt-1 shrink-0"></i> Precisa contratar mais gente</li>
+                                <li class="flex items-start gap-3"><i class="fas fa-times text-brand-textMuted mt-1 shrink-0"></i> Precisa trabalhar mais horas</li>
+                                <li class="flex items-start gap-3"><i class="fas fa-times text-brand-textMuted mt-1 shrink-0"></i> Precisa de mais disciplina</li>
+                            </ul>
+                        </div>
+                        <div class="glass-glow rounded-2xl p-6">
+                            <div class="flex items-center gap-3 mb-5">
+                                <span class="w-8 h-8 rounded-lg flex items-center justify-center bg-brand-primary/15 text-brand-primary shrink-0"><i class="fas fa-check text-xs"></i></span>
+                                <h3 class="text-lg font-bold text-brand-textPrimary">O que realmente está travando</h3>
+                            </div>
+                            <ul class="space-y-3 text-brand-textSecondary">
+                                <li class="flex items-start gap-3"><i class="fas fa-check text-brand-primary mt-1 shrink-0"></i> Falta direção estratégica clara</li>
+                                <li class="flex items-start gap-3"><i class="fas fa-check text-brand-primary mt-1 shrink-0"></i> Falta processo que sustente o crescimento</li>
+                                <li class="flex items-start gap-3"><i class="fas fa-check text-brand-primary mt-1 shrink-0"></i> Falta decisão madura, não mais esforço</li>
+                                <li class="flex items-start gap-3"><i class="fas fa-check text-brand-primary mt-1 shrink-0"></i> Falta o dono sair da operação e assumir a governança</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <button type="button" onclick="abrirPopup()" class="btn-shimmer btn-gold btn-pill shadow-[0_0_30px_rgba(163,136,70,.35)]">
+                        Garantir minha vaga em Mogi Mirim
+                    </button>
+                </div>
+                <div class="relative" data-aos="fade-left">
+                    <div class="absolute inset-0 bg-brand-primary/15 rounded-3xl blur-[50px]"></div>
+                    <div class="frame-glow relative">
+                        <img src="assets/asset%204.webp" alt="Empresário sob pressão" class="w-full aspect-[4/5] object-cover" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIMELINE — módulos -->
+    <section id="modulos" class="py-20 md:py-28 relative overflow-hidden">
+        <div class="container mx-auto px-6 max-w-content">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <p class="section-eyebrow">O método</p>
+                <h2 class="text-3xl md:text-4xl font-black text-brand-textPrimary">
+                    Quatro etapas. Um dia. <span class="title-accent">Direção real.</span>
                 </h2>
             </div>
-            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <div class="compare-card compare-card--wrong" data-aos="fade-right">
-                    <div class="flex items-center gap-3 mb-6">
-                        <img src="assets/asset%2018.svg" alt="" class="w-8 h-8 text-brand-danger" style="filter: invert(55%) sepia(80%) saturate(500%) hue-rotate(320deg);">
-                        <h3 class="text-xl font-bold text-brand-textPrimary">O que você acha que é o problema</h3>
-                    </div>
-                    <ul class="space-y-4 text-brand-textSecondary">
-                        <li class="flex items-start gap-3"><i class="fas fa-times text-brand-danger mt-1 shrink-0"></i> Precisa vender mais</li>
-                        <li class="flex items-start gap-3"><i class="fas fa-times text-brand-danger mt-1 shrink-0"></i> Precisa contratar mais gente</li>
-                        <li class="flex items-start gap-3"><i class="fas fa-times text-brand-danger mt-1 shrink-0"></i> Precisa trabalhar mais horas</li>
-                        <li class="flex items-start gap-3"><i class="fas fa-times text-brand-danger mt-1 shrink-0"></i> Precisa de mais disciplina</li>
-                    </ul>
-                </div>
-                <div class="compare-card compare-card--right" data-aos="fade-left">
-                    <div class="flex items-center gap-3 mb-6">
-                        <img src="assets/asset%2019.svg" alt="" class="w-8 h-8" style="filter: invert(75%) sepia(30%) saturate(600%) hue-rotate(80deg);">
-                        <h3 class="text-xl font-bold text-brand-textPrimary">O que realmente está travando</h3>
-                    </div>
-                    <ul class="space-y-4 text-brand-textSecondary">
-                        <li class="flex items-start gap-3"><i class="fas fa-check text-brand-success mt-1 shrink-0"></i> Falta direção estratégica clara</li>
-                        <li class="flex items-start gap-3"><i class="fas fa-check text-brand-success mt-1 shrink-0"></i> Falta processo que sustente o crescimento</li>
-                        <li class="flex items-start gap-3"><i class="fas fa-check text-brand-success mt-1 shrink-0"></i> Falta decisão madura, não mais esforço</li>
-                        <li class="flex items-start gap-3"><i class="fas fa-check text-brand-success mt-1 shrink-0"></i> Falta o dono sair da operação e assumir a governança</li>
-                    </ul>
+
+            <div class="relative mb-10 hidden md:block" data-aos="fade-up">
+                <div class="timeline-line"></div>
+                <div class="grid grid-cols-4 gap-4">
+                    <div class="flex justify-center"><div class="timeline-node">01</div></div>
+                    <div class="flex justify-center"><div class="timeline-node">02</div></div>
+                    <div class="flex justify-center"><div class="timeline-node">03</div></div>
+                    <div class="flex justify-center"><div class="timeline-node">04</div></div>
                 </div>
             </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div class="glass-glow rounded-2xl p-6 text-center card-lift" data-aos="fade-up">
+                    <div class="md:hidden timeline-node mx-auto mb-4">01</div>
+                    <div class="icon-orb"><i class="fas fa-search"></i></div>
+                    <h3 class="font-bold text-brand-textPrimary mb-2">Diagnóstico de Realidade</h3>
+                    <p class="text-brand-textSecondary text-sm leading-relaxed">Leitura fria de onde seu negócio está perdendo dinheiro, energia e foco.</p>
+                </div>
+                <div class="glass-glow rounded-2xl p-6 text-center card-lift" data-aos="fade-up" data-aos-delay="80">
+                    <div class="md:hidden timeline-node mx-auto mb-4">02</div>
+                    <div class="icon-orb"><i class="fas fa-chart-line"></i></div>
+                    <h3 class="font-bold text-brand-textPrimary mb-2">Onde está travando o crescimento</h3>
+                    <p class="text-brand-textSecondary text-sm leading-relaxed">Identificação clara entre urgência e prioridade, esforço e resultado.</p>
+                </div>
+                <div class="glass-glow rounded-2xl p-6 text-center card-lift" data-aos="fade-up" data-aos-delay="160">
+                    <div class="md:hidden timeline-node mx-auto mb-4">03</div>
+                    <div class="icon-orb"><i class="fas fa-bullseye"></i></div>
+                    <h3 class="font-bold text-brand-textPrimary mb-2">Clareza de Prioridades</h3>
+                    <p class="text-brand-textSecondary text-sm leading-relaxed">O que organizar primeiro para o negócio voltar a crescer.</p>
+                </div>
+                <div class="glass-glow rounded-2xl p-6 text-center card-lift" data-aos="fade-up" data-aos-delay="240">
+                    <div class="md:hidden timeline-node mx-auto mb-4">04</div>
+                    <div class="icon-orb"><i class="fas fa-calendar-check"></i></div>
+                    <h3 class="font-bold text-brand-textPrimary mb-2">Plano de 90 Dias</h3>
+                    <p class="text-brand-textSecondary text-sm leading-relaxed">Direção prática para aplicar a partir do dia seguinte ao evento.</p>
+                </div>
+            </div>
+
             <div class="text-center mt-12" data-aos="fade-up">
-                <button type="button" onclick="abrirPopup()" class="btn-shimmer btn-gold font-bold uppercase tracking-wider text-sm py-4 px-10 rounded-xl shadow-[0_0_30px_rgba(163,136,70,.35)] hover:-translate-y-1 transition-all">
-                    Garantir minha vaga em Mogi Mirim
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTEÚDO -->
-    <section id="conteudo" class="py-24 bg-brand-brownDark relative overflow-hidden border-y border-white/5">
-        <div class="container mx-auto px-6 max-w-content relative z-10">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="relative rounded-2xl overflow-hidden" data-aos="fade-right">
-                    <img src="assets/asset%205.webp" alt="Mateus Ribeiro conduzindo o Impulse Empresarial" class="w-full rounded-2xl border border-white/10 object-cover aspect-[4/5]" loading="lazy">
-                </div>
-                <div data-aos="fade-left">
-                    <p class="section-eyebrow section-eyebrow--gold">O encontro</p>
-                    <h2 class="text-3xl md:text-4xl font-black text-brand-textPrimary mb-8 leading-tight">
-                        O que acontece dentro do <span class="title-accent">Impulse</span>
-                    </h2>
-                    <ul class="space-y-6">
-                        <li class="flex gap-4">
-                            <div class="w-10 h-10 shrink-0 rounded-lg bg-brand-primary/10 flex items-center justify-center text-brand-primary"><i class="fas fa-search"></i></div>
-                            <div>
-                                <h4 class="font-bold text-brand-textPrimary mb-1">Diagnóstico de Realidade</h4>
-                                <p class="text-brand-textSecondary text-sm leading-relaxed">Leitura fria de onde seu negócio está perdendo dinheiro, energia e foco.</p>
-                            </div>
-                        </li>
-                        <li class="flex gap-4">
-                            <div class="w-10 h-10 shrink-0 rounded-lg bg-brand-primary/10 flex items-center justify-center text-brand-primary"><i class="fas fa-chart-line"></i></div>
-                            <div>
-                                <h4 class="font-bold text-brand-textPrimary mb-1">Onde está travando o seu crescimento</h4>
-                                <p class="text-brand-textSecondary text-sm leading-relaxed">Identificação clara entre urgência e prioridade, esforço e resultado.</p>
-                            </div>
-                        </li>
-                        <li class="flex gap-4">
-                            <div class="w-10 h-10 shrink-0 rounded-lg bg-brand-primary/10 flex items-center justify-center text-brand-primary"><i class="fas fa-bullseye"></i></div>
-                            <div>
-                                <h4 class="font-bold text-brand-textPrimary mb-1">Clareza de Prioridades</h4>
-                                <p class="text-brand-textSecondary text-sm leading-relaxed">O que organizar primeiro para o negócio voltar a crescer.</p>
-                            </div>
-                        </li>
-                        <li class="flex gap-4">
-                            <div class="w-10 h-10 shrink-0 rounded-lg bg-brand-primary/10 flex items-center justify-center text-brand-primary"><i class="fas fa-calendar-check"></i></div>
-                            <div>
-                                <h4 class="font-bold text-brand-textPrimary mb-1">Plano de 90 Dias</h4>
-                                <p class="text-brand-textSecondary text-sm leading-relaxed">Direção prática para aplicar a partir do dia seguinte ao evento.</p>
-                            </div>
-                        </li>
-                    </ul>
-                    <button type="button" onclick="abrirPopup()" class="btn-shimmer btn-gold font-bold uppercase tracking-wider text-sm py-4 px-10 rounded-xl hover:-translate-y-1 transition-all mt-8">
-                        Quero viver esse encontro
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- GALERIA -->
-    <section id="galeria" class="py-16 bg-brand-surface border-y border-white/5 overflow-hidden">
-        <div class="container mx-auto px-6 max-w-content mb-10 text-center">
-            <p class="section-eyebrow text-center" data-aos="fade-up">Edições anteriores</p>
-            <h2 class="text-2xl md:text-4xl font-black text-brand-textPrimary" data-aos="fade-up">Confira a <span class="title-accent">experiência</span></h2>
-        </div>
-        <div class="marquee-mask mb-5"><div id="marquee-row-1" class="animate-marquee marquee-track"></div></div>
-        <div class="marquee-mask"><div id="marquee-row-2" class="animate-marquee-reverse marquee-track"></div></div>
-        <div class="text-center mt-10" data-aos="fade-up">
-            <button type="button" onclick="abrirPopup()" class="btn-shimmer btn-gold font-bold uppercase tracking-wider text-sm py-4 px-10 rounded-xl hover:-translate-y-1 transition-all">
-                Quero fazer parte da próxima edição
-            </button>
-        </div>
-    </section>
-
-    <!-- MENTOR -->
-    <section id="mentor" class="py-24 bg-brand-bg relative overflow-hidden border-y border-white/5">
-        <div class="container mx-auto px-6 max-w-content">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div class="relative" data-aos="fade-right">
-                    <div class="absolute inset-0 bg-brand-primary/20 rounded-3xl blur-[60px]"></div>
-                    <img src="assets/asset%2012.webp" alt="Mateus Ribeiro" class="relative z-10 w-full rounded-3xl border border-white/10 object-cover aspect-[4/5]" loading="lazy">
-                    <div class="mentor-stat-badge">
-                        <span class="mentor-stat-number">20+</span>
-                        <span class="mentor-stat-label">anos de<br>atuação</span>
-                    </div>
-                </div>
-                <div data-aos="fade-left">
-                    <p class="section-eyebrow section-eyebrow--gold">Autoridade</p>
-                    <h2 class="text-3xl md:text-4xl font-black text-brand-textPrimary mb-6 leading-tight">Mateus Ribeiro</h2>
-                    <div class="space-y-5 text-brand-textSecondary text-lg leading-relaxed">
-                        <p>Mais de 20 anos atuando no desenvolvimento de líderes, empresários e organizações. Criador do LEX, do Performind e do Impulse Empresarial, já realizado em grandes capitais do Brasil e fora do país, em Orlando.</p>
-                        <p>Sua marca é a ausência de romantização: fala direto com quem precisa decidir melhor, não com quem busca motivação.</p>
-                    </div>
-                    <button type="button" onclick="abrirPopup()" class="btn-shimmer btn-gold font-bold uppercase tracking-wider text-sm py-4 px-10 rounded-xl hover:-translate-y-1 transition-all mt-8">
-                        Quero aprender com o Mateus
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- QUALIFICAÇÃO -->
-    <section id="qualificacao" class="py-24 bg-brand-surface relative overflow-hidden border-y border-white/5">
-        <div class="container mx-auto px-6 max-w-content">
-            <div class="text-center max-w-2xl mx-auto mb-14">
-                <p class="section-eyebrow text-center" data-aos="fade-up">Perfil ideal</p>
-                <h2 class="text-3xl md:text-4xl font-black text-brand-textPrimary" data-aos="fade-up">Para quem é e para quem <span class="title-accent">não é</span></h2>
-            </div>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="qualify-card qualify-card--no" data-aos="fade-right">
-                    <div class="qualify-card-inner">
-                        <div class="flex items-center gap-3 mb-6">
-                            <div class="w-10 h-10 rounded-full bg-red-500/10 flex items-center justify-center text-brand-danger"><i class="fas fa-times"></i></div>
-                            <h3 class="text-xl font-bold">Para quem não é</h3>
-                        </div>
-                        <ul class="space-y-4 text-brand-textSecondary">
-                            <li class="flex gap-3"><i class="fas fa-times text-brand-danger mt-1 shrink-0"></i> Quem busca motivação ou "transformação de vida"</li>
-                            <li class="flex gap-3"><i class="fas fa-times text-brand-danger mt-1 shrink-0"></i> Quem ainda não tem negócio em operação</li>
-                            <li class="flex gap-3"><i class="fas fa-times text-brand-danger mt-1 shrink-0"></i> Quem não está disposto a encarar decisões que vem adiando</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="qualify-card qualify-card--yes" data-aos="fade-left">
-                    <div class="qualify-card-inner">
-                        <div class="flex items-center gap-3 mb-6">
-                            <div class="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center text-brand-success"><i class="fas fa-check"></i></div>
-                            <h3 class="text-xl font-bold">Para quem é</h3>
-                        </div>
-                        <ul class="space-y-4 text-brand-textSecondary">
-                            <li class="flex gap-3"><i class="fas fa-check text-brand-success mt-1 shrink-0"></i> Empresário que já tem negócio em operação, com faturamento consistente</li>
-                            <li class="flex gap-3"><i class="fas fa-check text-brand-success mt-1 shrink-0"></i> Quer crescer de forma estruturada, não no improviso</li>
-                            <li class="flex gap-3"><i class="fas fa-check text-brand-success mt-1 shrink-0"></i> Está cansado de apagar incêndio todos os dias</li>
-                            <li class="flex gap-3"><i class="fas fa-check text-brand-success mt-1 shrink-0"></i> Leva o próprio negócio a sério e está pronto para decidir melhor</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-12" data-aos="fade-up">
-                <button type="button" onclick="abrirPopup()" class="btn-shimmer btn-gold font-bold uppercase tracking-wider text-sm py-4 px-10 rounded-xl hover:-translate-y-1 transition-all">
-                    Quero sair do improviso
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- MÓDULOS -->
-    <section id="modulos" class="py-24 bg-brand-bg">
-        <div class="container mx-auto px-6 max-w-content">
-            <div class="grid sm:grid-cols-2 gap-6">
-                <div class="mod-card" data-aos="fade-up">
-                    <div class="mod-card-media">
-                        <img src="assets/asset%207.webp" alt="" loading="lazy" aria-hidden="true">
-                        <span class="mod-card-number">01</span>
-                    </div>
-                    <div class="mod-card-body">
-                        <h3 class="mod-card-title">Diagnóstico de Realidade</h3>
-                        <p class="text-brand-textSecondary text-sm leading-relaxed">Leitura fria de onde seu negócio está perdendo dinheiro, energia e foco.</p>
-                    </div>
-                </div>
-                <div class="mod-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="mod-card-media">
-                        <img src="assets/asset%208.webp" alt="" loading="lazy" aria-hidden="true">
-                        <span class="mod-card-number">02</span>
-                    </div>
-                    <div class="mod-card-body">
-                        <h3 class="mod-card-title">Onde está travando o crescimento</h3>
-                        <p class="text-brand-textSecondary text-sm leading-relaxed">Identificação clara entre urgência e prioridade, esforço e resultado.</p>
-                    </div>
-                </div>
-                <div class="mod-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="mod-card-media">
-                        <img src="assets/asset%209.webp" alt="" loading="lazy" aria-hidden="true">
-                        <span class="mod-card-number">03</span>
-                    </div>
-                    <div class="mod-card-body">
-                        <h3 class="mod-card-title">Clareza de Prioridades</h3>
-                        <p class="text-brand-textSecondary text-sm leading-relaxed">O que organizar primeiro para o negócio voltar a crescer.</p>
-                    </div>
-                </div>
-                <div class="mod-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="mod-card-media">
-                        <img src="assets/asset%2010.webp" alt="" loading="lazy" aria-hidden="true">
-                        <span class="mod-card-number">04</span>
-                    </div>
-                    <div class="mod-card-body">
-                        <h3 class="mod-card-title">Plano de 90 Dias</h3>
-                        <p class="text-brand-textSecondary text-sm leading-relaxed">Direção prática para aplicar a partir do dia seguinte ao evento.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-12" data-aos="fade-up">
-                <button type="button" onclick="abrirPopup()" class="btn-shimmer btn-gold font-bold uppercase tracking-wider text-sm py-4 px-10 rounded-xl hover:-translate-y-1 transition-all">
+                <button type="button" onclick="abrirPopup()" class="btn-shimmer btn-gold btn-pill shadow-[0_0_30px_rgba(163,136,70,.35)]">
                     Quero esses 4 módulos
                 </button>
             </div>
         </div>
     </section>
 
-    <!-- PROVA SOCIAL -->
-    <section id="prova" class="py-24 bg-brand-surface border-y border-white/5">
+    <!-- GALERIA 2x2 -->
+    <section id="galeria" class="py-20 md:py-28 relative overflow-hidden">
+        <div class="container mx-auto px-6 max-w-content">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <p class="section-eyebrow">Edições anteriores</p>
+                <h2 class="text-3xl md:text-4xl font-black text-brand-textPrimary">
+                    Confira a <span class="title-accent">experiência</span>
+                </h2>
+            </div>
+            <div class="max-w-2xl mx-auto" data-aos="zoom-in">
+                <div class="gallery-grid">
+                    <img src="assets/asset%207.webp" alt="Impulse" loading="lazy">
+                    <img src="assets/asset%208.webp" alt="Impulse" loading="lazy">
+                    <img src="assets/asset%209.webp" alt="Impulse" loading="lazy">
+                    <img src="assets/asset%2010.webp" alt="Impulse" loading="lazy">
+                    <div class="gallery-center-icon"><i class="fas fa-bolt"></i></div>
+                </div>
+            </div>
+            <div class="text-center mt-12" data-aos="fade-up">
+                <button type="button" onclick="abrirPopup()" class="btn-shimmer btn-gold btn-pill shadow-[0_0_30px_rgba(163,136,70,.35)]">
+                    Quero fazer parte da próxima edição
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENTOR -->
+    <section id="mentor" class="py-20 md:py-28 relative overflow-hidden">
+        <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-goldLight/5 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="container mx-auto px-6 max-w-content relative z-10">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <p class="section-eyebrow">Autoridade</p>
+                <h2 class="text-3xl md:text-4xl font-black text-brand-textPrimary">Quem conduz o <span class="title-accent">Impulse</span></h2>
+            </div>
+            <div class="max-w-2xl mx-auto" data-aos="fade-up">
+                <div class="glass-glow rounded-3xl overflow-hidden card-lift">
+                    <div class="grid md:grid-cols-2">
+                        <div class="aspect-[4/5] md:aspect-auto relative min-h-[320px]">
+                            <img src="assets/asset%2012.webp" alt="Mateus Ribeiro" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-bg via-transparent to-transparent md:bg-gradient-to-r"></div>
+                        </div>
+                        <div class="p-6 md:p-8 flex flex-col justify-center">
+                            <h3 class="text-2xl font-black text-brand-textPrimary mb-1">Mateus Ribeiro</h3>
+                            <p class="text-brand-primary text-sm font-semibold uppercase tracking-widest mb-5">20+ anos de atuação</p>
+                            <div class="space-y-4 text-brand-textSecondary text-sm leading-relaxed mb-6">
+                                <p>Mais de 20 anos atuando no desenvolvimento de líderes, empresários e organizações. Criador do LEX, do Performind e do Impulse Empresarial, já realizado em grandes capitais do Brasil e fora do país, em Orlando.</p>
+                                <p>Sua marca é a ausência de romantização: fala direto com quem precisa decidir melhor, não com quem busca motivação.</p>
+                            </div>
+                            <button type="button" onclick="abrirPopup()" class="btn-shimmer btn-gold btn-pill w-full shadow-[0_0_30px_rgba(163,136,70,.35)]">
+                                Quero aprender com o Mateus
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- METHOD RING -->
+    <section id="conteudo" class="py-20 md:py-28 relative overflow-hidden">
+        <div class="container mx-auto px-6 max-w-content">
+            <div class="text-center mb-14" data-aos="fade-up">
+                <p class="section-eyebrow">O encontro</p>
+                <h2 class="text-3xl md:text-4xl font-black text-brand-textPrimary">
+                    O que acontece dentro do <span class="title-accent">Impulse</span>
+                </h2>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8 items-center">
+                <div class="space-y-8 text-right hidden lg:block" data-aos="fade-right">
+                    <div>
+                        <h4 class="font-bold text-brand-textPrimary mb-1">Diagnóstico de Realidade</h4>
+                        <p class="text-brand-textSecondary text-sm">Leitura fria de onde seu negócio está perdendo dinheiro, energia e foco.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-brand-textPrimary mb-1">Onde está travando o seu crescimento</h4>
+                        <p class="text-brand-textSecondary text-sm">Identificação clara entre urgência e prioridade, esforço e resultado.</p>
+                    </div>
+                </div>
+
+                <div class="flex justify-center" data-aos="zoom-in">
+                    <div class="method-ring">
+                        <div class="method-ring-core">
+                            <div>
+                                <p class="text-brand-primary text-xs font-bold uppercase tracking-[0.25em] mb-2">Sistema</p>
+                                <p class="text-xl font-black text-brand-textPrimary leading-tight">Impulse<br>Empresarial</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-8 text-left hidden lg:block" data-aos="fade-left">
+                    <div>
+                        <h4 class="font-bold text-brand-textPrimary mb-1">Clareza de Prioridades</h4>
+                        <p class="text-brand-textSecondary text-sm">O que organizar primeiro para o negócio voltar a crescer.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-brand-textPrimary mb-1">Plano de 90 Dias</h4>
+                        <p class="text-brand-textSecondary text-sm">Direção prática para aplicar a partir do dia seguinte ao evento.</p>
+                    </div>
+                </div>
+
+                <!-- Mobile labels -->
+                <div class="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-4 col-span-full" data-aos="fade-up">
+                    <div class="glass rounded-xl p-4">
+                        <h4 class="font-bold text-brand-textPrimary text-sm mb-1">Diagnóstico de Realidade</h4>
+                        <p class="text-brand-textSecondary text-xs leading-relaxed">Leitura fria de onde seu negócio está perdendo dinheiro, energia e foco.</p>
+                    </div>
+                    <div class="glass rounded-xl p-4">
+                        <h4 class="font-bold text-brand-textPrimary text-sm mb-1">Onde está travando o seu crescimento</h4>
+                        <p class="text-brand-textSecondary text-xs leading-relaxed">Identificação clara entre urgência e prioridade, esforço e resultado.</p>
+                    </div>
+                    <div class="glass rounded-xl p-4">
+                        <h4 class="font-bold text-brand-textPrimary text-sm mb-1">Clareza de Prioridades</h4>
+                        <p class="text-brand-textSecondary text-xs leading-relaxed">O que organizar primeiro para o negócio voltar a crescer.</p>
+                    </div>
+                    <div class="glass rounded-xl p-4">
+                        <h4 class="font-bold text-brand-textPrimary text-sm mb-1">Plano de 90 Dias</h4>
+                        <p class="text-brand-textSecondary text-xs leading-relaxed">Direção prática para aplicar a partir do dia seguinte ao evento.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-14" data-aos="fade-up">
+                <button type="button" onclick="abrirPopup()" class="btn-shimmer btn-gold btn-pill shadow-[0_0_30px_rgba(163,136,70,.35)]">
+                    Quero viver esse encontro
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ICON GRID — benefícios -->
+    <section class="py-20 md:py-28 relative">
+        <div class="container mx-auto px-6 max-w-content">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center" data-aos="fade-up">
+                    <div class="icon-orb"><i class="fas fa-compass"></i></div>
+                    <h3 class="font-bold text-brand-textPrimary mb-2">Direção estratégica</h3>
+                    <p class="text-brand-textSecondary text-sm leading-relaxed">Clareza sobre para onde o negócio precisa ir — sem romantização.</p>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="80">
+                    <div class="icon-orb"><i class="fas fa-cogs"></i></div>
+                    <h3 class="font-bold text-brand-textPrimary mb-2">Estrutura real</h3>
+                    <p class="text-brand-textSecondary text-sm leading-relaxed">Processos que sustentam crescimento sem depender só de você.</p>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="160">
+                    <div class="icon-orb"><i class="fas fa-chess-king"></i></div>
+                    <h3 class="font-bold text-brand-textPrimary mb-2">Governança do dono</h3>
+                    <p class="text-brand-textSecondary text-sm leading-relaxed">Sair da operação e assumir o papel de quem decide de verdade.</p>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="240">
+                    <div class="icon-orb"><i class="fas fa-rocket"></i></div>
+                    <h3 class="font-bold text-brand-textPrimary mb-2">Plano de 90 dias</h3>
+                    <p class="text-brand-textSecondary text-sm leading-relaxed">Ação concreta a partir do dia seguinte ao evento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEXT GRID — qualificação -->
+    <section id="qualificacao" class="py-20 md:py-28 relative overflow-hidden">
+        <div class="container mx-auto px-6 max-w-content">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <p class="section-eyebrow">Perfil ideal</p>
+                <h2 class="text-3xl md:text-4xl font-black text-brand-textPrimary">
+                    Para quem é e para quem <span class="title-accent">não é</span>
+                </h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto" data-aos="fade-up">
+                <div class="glass-glow rounded-2xl p-8">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-brand-textMuted"><i class="fas fa-times"></i></div>
+                        <h3 class="text-xl font-bold text-brand-textPrimary">Para quem não é</h3>
+                    </div>
+                    <ul class="space-y-4 text-brand-textSecondary">
+                        <li class="flex gap-3"><i class="fas fa-times text-brand-textMuted mt-1 shrink-0"></i> Quem busca motivação ou "transformação de vida"</li>
+                        <li class="flex gap-3"><i class="fas fa-times text-brand-textMuted mt-1 shrink-0"></i> Quem ainda não tem negócio em operação</li>
+                        <li class="flex gap-3"><i class="fas fa-times text-brand-textMuted mt-1 shrink-0"></i> Quem não está disposto a encarar decisões que vem adiando</li>
+                    </ul>
+                </div>
+                <div class="glass-glow rounded-2xl p-8">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-full bg-brand-primary/10 flex items-center justify-center text-brand-primary"><i class="fas fa-check"></i></div>
+                        <h3 class="text-xl font-bold text-brand-textPrimary">Para quem é</h3>
+                    </div>
+                    <ul class="space-y-4 text-brand-textSecondary">
+                        <li class="flex gap-3"><i class="fas fa-check text-brand-primary mt-1 shrink-0"></i> Empresário que já tem negócio em operação, com faturamento consistente</li>
+                        <li class="flex gap-3"><i class="fas fa-check text-brand-primary mt-1 shrink-0"></i> Quer crescer de forma estruturada, não no improviso</li>
+                        <li class="flex gap-3"><i class="fas fa-check text-brand-primary mt-1 shrink-0"></i> Está cansado de apagar incêndio todos os dias</li>
+                        <li class="flex gap-3"><i class="fas fa-check text-brand-primary mt-1 shrink-0"></i> Leva o próprio negócio a sério e está pronto para decidir melhor</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center mt-12" data-aos="fade-up">
+                <button type="button" onclick="abrirPopup()" class="btn-shimmer btn-gold btn-pill shadow-[0_0_30px_rgba(163,136,70,.35)]">
+                    Quero sair do improviso
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROVA SOCIAL — vídeos -->
+    <section id="prova" class="py-20 md:py-28 relative overflow-hidden">
         <div class="container mx-auto px-6 max-w-content text-center">
-            <p class="section-eyebrow text-center" data-aos="fade-up">Prova social</p>
+            <p class="section-eyebrow" data-aos="fade-up">Prova social</p>
             <h2 class="text-3xl md:text-4xl font-black text-brand-textPrimary mb-4" data-aos="fade-up">
                 Mais de <span class="title-accent">1000 empresários</span> já passaram pelo Impulse
             </h2>
             <p class="text-brand-textSecondary max-w-2xl mx-auto mb-12" data-aos="fade-up">
                 Em edições anteriores, em capitais do Brasil e em Orlando. Confira o que eles falam:
             </p>
-            <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-8" data-aos="fade-up">
+            <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-10" data-aos="fade-up">
                 <div class="depoimento-video">
                     <div class="depoimento-video-frame">
                         <button type="button" class="depoimento-video-poster w-full h-full border-0 p-0 bg-black" data-youtube="jrYNTvGQ_uI" aria-label="Reproduzir depoimento">
@@ -748,75 +837,88 @@
                     </div>
                 </div>
             </div>
-            <button type="button" onclick="abrirPopup()" class="btn-shimmer btn-gold font-bold uppercase tracking-wider text-sm py-4 px-10 rounded-xl hover:-translate-y-1 transition-all">
+            <button type="button" onclick="abrirPopup()" class="btn-shimmer btn-gold btn-pill shadow-[0_0_30px_rgba(163,136,70,.35)]" data-aos="fade-up">
                 Quero ser o próximo depoimento
             </button>
         </div>
     </section>
 
     <!-- PRICING -->
-    <section id="ingressos" class="py-24 bg-brand-bg relative overflow-hidden">
-        <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand-goldLight/5 rounded-full blur-[120px] pointer-events-none"></div>
+    <section id="ingressos" class="py-24 md:py-32 relative overflow-hidden">
         <div class="container mx-auto px-6 max-w-content relative z-10">
-            <div class="text-center mb-10" data-aos="fade-up">
-                <p class="section-eyebrow section-eyebrow--gold">Urgência</p>
-                <h2 class="text-3xl md:text-4xl font-black text-brand-textPrimary mb-4">Vagas limitadas em Mogi Mirim</h2>
-                <p class="text-brand-textSecondary">Data e local fixos: 29/07, Mogi Mirim/SP. Inscrições encerram em 28/07 às 23h59. Não há nova data remarcada para quem perder o prazo nesta cidade.</p>
+            <div class="text-center mb-14" data-aos="fade-up">
+                <p class="section-eyebrow">Urgência</p>
+                <h2 class="text-3xl md:text-4xl font-black text-brand-textPrimary mb-5">Vagas limitadas em Mogi Mirim</h2>
+                <p class="text-brand-textSecondary max-w-xl mx-auto leading-relaxed">Data e local fixos: 29/07, Mogi Mirim/SP. Inscrições encerram em 28/07 às 23h59. Não há nova data remarcada para quem perder o prazo nesta cidade.</p>
             </div>
 
-            <div class="timer-box rounded-2xl p-6 max-w-xl mx-auto mb-12 text-center" data-aos="fade-up">
-                <p class="text-xs font-bold uppercase tracking-widest text-brand-textSecondary mb-4">Inscrições encerram em:</p>
-                <div class="flex justify-center gap-4 md:gap-8" id="countdown">
-                    <div><span class="timer-digit block" id="cd-days">00</span><span class="text-[10px] uppercase tracking-widest text-brand-textMuted">Dias</span></div>
-                    <div><span class="timer-digit block" id="cd-hours">00</span><span class="text-[10px] uppercase tracking-widest text-brand-textMuted">Horas</span></div>
-                    <div><span class="timer-digit block" id="cd-mins">00</span><span class="text-[10px] uppercase tracking-widest text-brand-textMuted">Min</span></div>
-                    <div><span class="timer-digit block" id="cd-secs">00</span><span class="text-[10px] uppercase tracking-widest text-brand-textMuted">Seg</span></div>
+            <div class="text-center mb-14" data-aos="fade-up">
+                <p class="text-[11px] font-medium uppercase tracking-[0.28em] text-brand-textMuted mb-6">Inscrições encerram em</p>
+                <div class="flex items-end justify-center gap-3 md:gap-5" id="countdown">
+                    <div class="timer-unit">
+                        <span class="timer-digit block" id="cd-days">00</span>
+                        <span class="text-[10px] uppercase tracking-[0.2em] text-brand-textMuted mt-2 block">Dias</span>
+                    </div>
+                    <span class="timer-sep" aria-hidden="true">:</span>
+                    <div class="timer-unit">
+                        <span class="timer-digit block" id="cd-hours">00</span>
+                        <span class="text-[10px] uppercase tracking-[0.2em] text-brand-textMuted mt-2 block">Horas</span>
+                    </div>
+                    <span class="timer-sep" aria-hidden="true">:</span>
+                    <div class="timer-unit">
+                        <span class="timer-digit block" id="cd-mins">00</span>
+                        <span class="text-[10px] uppercase tracking-[0.2em] text-brand-textMuted mt-2 block">Min</span>
+                    </div>
+                    <span class="timer-sep" aria-hidden="true">:</span>
+                    <div class="timer-unit">
+                        <span class="timer-digit block" id="cd-secs">00</span>
+                        <span class="text-[10px] uppercase tracking-[0.2em] text-brand-textMuted mt-2 block">Seg</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="pricing-card max-w-2xl mx-auto p-8 md:p-10" data-aos="fade-up">
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div class="space-y-4">
-                        <div class="glass-strong rounded-xl p-4 flex items-center gap-3">
-                            <i class="far fa-calendar text-brand-primary"></i>
-                            <div>
-                                <p class="text-[10px] uppercase tracking-widest text-brand-textMuted">Data</p>
-                                <p class="font-semibold">29/07/2026</p>
-                            </div>
+            <div class="max-w-2xl mx-auto" data-aos="fade-up">
+                <div class="pricing-card overflow-hidden">
+                    <div class="flex justify-center pt-8 pb-2">
+                        <span class="pricing-badge">Vagas limitadas</span>
+                    </div>
+
+                    <div class="px-8 md:px-12 pt-6 pb-8 text-center">
+                        <p class="text-[11px] font-medium uppercase tracking-[0.28em] text-brand-textMuted mb-3">Investimento</p>
+                        <p class="font-display text-5xl md:text-6xl font-bold text-brand-primary tracking-tight mb-2">R$147<span class="text-2xl md:text-3xl font-semibold opacity-70">,00</span></p>
+                        <p class="text-sm text-brand-textSecondary tracking-wide">Mogi Mirim/SP · 29/07/2026</p>
+                    </div>
+
+                    <div class="pricing-divider mx-8 md:mx-12"></div>
+
+                    <div class="pricing-meta">
+                        <div class="pricing-meta-item">
+                            <p class="text-[10px] uppercase tracking-[0.22em] text-brand-textMuted mb-2">Data</p>
+                            <p class="text-sm font-semibold text-brand-textPrimary">29/07/2026</p>
                         </div>
-                        <div class="glass-strong rounded-xl p-4 flex items-center gap-3">
-                            <i class="fas fa-map-marker-alt text-brand-primary"></i>
-                            <div>
-                                <p class="text-[10px] uppercase tracking-widest text-brand-textMuted">Local</p>
-                                <p class="font-semibold">Mogi Mirim/SP</p>
-                                <p class="text-xs text-brand-textSecondary">[Local a confirmar]</p>
-                            </div>
+                        <div class="pricing-meta-item">
+                            <p class="text-[10px] uppercase tracking-[0.22em] text-brand-textMuted mb-2">Local</p>
+                            <p class="text-sm font-semibold text-brand-textPrimary">Mogi Mirim/SP</p>
+                            <p class="text-xs text-brand-textMuted mt-1">[Local a confirmar]</p>
                         </div>
-                        <div class="glass-strong rounded-xl p-4 flex items-center gap-3">
-                            <img src="assets/asset%2020.svg" alt="" class="w-5 h-5 opacity-70" style="filter: invert(80%) sepia(20%) saturate(500%) hue-rotate(5deg);">
-                            <div>
-                                <p class="text-[10px] uppercase tracking-widest text-brand-textMuted">Vagas</p>
-                                <p class="font-semibold text-sm">Limitadas pela capacidade do local</p>
-                            </div>
+                        <div class="pricing-meta-item">
+                            <p class="text-[10px] uppercase tracking-[0.22em] text-brand-textMuted mb-2">Vagas</p>
+                            <p class="text-sm font-semibold text-brand-textPrimary">Limitadas pela capacidade do local</p>
                         </div>
                     </div>
-                    <div class="text-center md:text-right">
-                        <div class="pricing-inline-badge">
-                            <i class="fas fa-bolt text-[10px]"></i>
-                            Vagas Limitadas
-                        </div>
-                        <p class="text-xs font-bold uppercase tracking-widest text-brand-textMuted mb-2">Investimento</p>
-                        <p class="text-5xl md:text-6xl font-black text-brand-primary mb-2">R$147<span class="text-2xl">,00</span></p>
-                        <p class="text-sm text-brand-textSecondary mb-6">Mogi Mirim/SP · 29/07/2026</p>
-                        <button type="button" onclick="abrirPopup()" class="btn-shimmer btn-gold w-full font-bold uppercase tracking-wider py-4 rounded-xl mb-3 hover:-translate-y-0.5 transition-all">
+
+                    <div class="pricing-divider mx-8 md:mx-12"></div>
+
+                    <div class="px-8 md:px-12 py-8 text-center">
+                        <button type="button" onclick="abrirPopup()" class="btn-shimmer btn-gold btn-pill w-full max-w-sm mx-auto shadow-[0_8px_24px_rgba(163,136,70,.25)]">
                             Garantir vaga por R$147
                         </button>
-                        <p class="text-xs text-brand-textMuted">Vagas limitadas pela capacidade do local</p>
-                        <div class="flex justify-center md:justify-end gap-2 mt-4 opacity-60">
-                            <i class="fab fa-cc-visa text-2xl"></i>
-                            <i class="fab fa-cc-mastercard text-2xl"></i>
-                            <i class="fab fa-cc-amex text-2xl"></i>
-                            <i class="fab fa-pix text-2xl"></i>
+                        <p class="text-xs text-brand-textMuted mt-5 tracking-wide">Vagas limitadas pela capacidade do local</p>
+                        <div class="flex justify-center gap-4 mt-6 text-brand-textMuted/40 text-xl">
+                            <i class="fab fa-cc-visa"></i>
+                            <i class="fab fa-cc-mastercard"></i>
+                            <i class="fab fa-cc-amex"></i>
+                            <i class="fab fa-pix"></i>
                         </div>
                     </div>
                 </div>
@@ -825,25 +927,26 @@
     </section>
 
     <!-- FECHAMENTO -->
-    <section id="fechamento" class="py-20 bg-brand-surface border-y border-white/5 text-center">
-        <div class="container mx-auto px-6 max-w-3xl">
+    <section id="fechamento" class="py-20 md:py-28 relative overflow-hidden bg-brand-bg">
+        <div class="container mx-auto px-6 max-w-3xl text-center">
             <h2 class="text-2xl md:text-4xl font-black text-brand-textPrimary mb-6" data-aos="fade-up">
-                Você pode continuar fazendo do mesmo jeito. Ou pode escolher <span class="title-accent">clareza.</span>
+                Você pode continuar fazendo do mesmo jeito.<br>
+                Ou pode escolher <span class="title-accent">clareza.</span>
             </h2>
             <p class="text-brand-textSecondary text-lg leading-relaxed mb-8" data-aos="fade-up">
                 O Impulse Empresarial não promete um caminho fácil. Promete direção real para quem está pronto para decidir melhor.
             </p>
-            <button type="button" onclick="abrirPopup()" class="btn-shimmer btn-gold font-bold uppercase tracking-wider text-sm py-4 px-10 rounded-xl hover:-translate-y-1 transition-all" data-aos="fade-up">
+            <button type="button" onclick="abrirPopup()" class="btn-shimmer btn-gold btn-pill shadow-[0_8px_24px_rgba(163,136,70,.25)]" data-aos="fade-up">
                 Eu quero essa clareza para meu negócio
             </button>
 
-            <div class="consultant-cta glass-strong rounded-2xl p-6 md:p-8 mt-10 flex flex-col md:flex-row items-center gap-6 text-left" data-aos="fade-up">
-                <img src="assets/asset%2012.webp" alt="Equipe do Impulse Empresarial" class="consultant-cta-img" loading="lazy">
+            <div class="mt-12 glass-glow rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center gap-6 text-left" data-aos="fade-up">
+                <img src="assets/asset%2012.webp" alt="Equipe do Impulse Empresarial" class="w-20 h-20 rounded-full object-cover border border-brand-primary/30 shrink-0" loading="lazy">
                 <div class="flex-1">
                     <p class="text-sm font-bold uppercase tracking-widest text-brand-primary mb-2">Fale com a nossa equipe</p>
-                    <p class="text-brand-textSecondary text-sm mb-5">Ficou com alguma dúvida antes de decidir? Fale direto com a equipe do Impulse pelo WhatsApp.</p>
-                    <a href="https://api.whatsapp.com/send/?phone=5511942371409&text=Ol%C3%A1%2C+vim+pelo+site+do+Impulse+Empresarial+Mogi+Mirim&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2 text-brand-textPrimary hover:text-brand-bg transition-all duration-300 text-sm font-bold uppercase tracking-wider border border-white/10 px-6 py-3 rounded-lg hover:bg-brand-goldLight hover:border-brand-goldLight hover:shadow-[0_0_20px_rgba(226,190,124,0.25)] hover:-translate-y-0.5">
-                        <i class="fab fa-whatsapp text-brand-goldLight group-hover:text-brand-bg text-lg transition-colors duration-300"></i> Falar com a Equipe
+                    <p class="text-brand-textSecondary text-sm mb-4">Ficou com alguma dúvida antes de decidir? Fale direto com a equipe do Impulse pelo WhatsApp.</p>
+                    <a href="https://api.whatsapp.com/send/?phone=5511942371409&text=Ol%C3%A1%2C+vim+pelo+site+do+Impulse+Empresarial+Mogi+Mirim&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-brand-textPrimary font-bold uppercase tracking-wider text-sm border border-white/10 px-6 py-3 rounded-full hover:border-brand-primary/40 hover:text-brand-primary transition-all">
+                        <i class="fab fa-whatsapp text-brand-primary text-lg"></i> Falar com a Equipe
                     </a>
                 </div>
             </div>
@@ -851,59 +954,59 @@
     </section>
 
     <!-- FAQ -->
-    <section id="faq" class="faq-section py-20 md:py-28">
+    <section id="faq" class="py-20 md:py-28 bg-brand-bg border-t border-white/5">
         <div class="container mx-auto px-6 max-w-content">
             <div class="grid lg:grid-cols-12 gap-12 items-start">
                 <div class="lg:col-span-4" data-aos="fade-right">
-                    <h2 class="font-display text-6xl md:text-8xl font-bold text-white leading-none">FAQ</h2>
+                    <h2 class="font-display text-6xl md:text-8xl font-bold text-brand-textPrimary leading-none">FAQ</h2>
                 </div>
                 <div class="lg:col-span-8 space-y-0" data-aos="fade-left">
                     <div class="faq-item is-open py-5">
-                        <button type="button" class="faq-question w-full flex items-center justify-between gap-4 text-left text-white font-semibold text-lg" onclick="toggleFaq(this)">
+                        <button type="button" class="faq-question w-full flex items-center justify-between gap-4 text-left text-brand-textPrimary font-semibold text-lg" onclick="toggleFaq(this)">
                             Isso funciona para o meu tipo de negócio?
-                            <i class="fas fa-chevron-down faq-chevron transition-transform shrink-0"></i>
+                            <i class="fas fa-chevron-down faq-chevron transition-transform shrink-0 text-brand-primary"></i>
                         </button>
                         <div class="faq-answer">
-                            <p class="text-white/85 text-sm leading-relaxed pt-3 pr-8">O Impulse trabalha estratégia, estrutura e decisão: princípios que se aplicam a qualquer negócio com faturamento consistente e equipe, independente do setor.</p>
+                            <p class="text-brand-textSecondary text-sm leading-relaxed pt-3 pr-8">O Impulse trabalha estratégia, estrutura e decisão: princípios que se aplicam a qualquer negócio com faturamento consistente e equipe, independente do setor.</p>
                         </div>
                     </div>
                     <div class="faq-item py-5">
-                        <button type="button" class="faq-question w-full flex items-center justify-between gap-4 text-left text-white font-semibold text-lg" onclick="toggleFaq(this)">
+                        <button type="button" class="faq-question w-full flex items-center justify-between gap-4 text-left text-brand-textPrimary font-semibold text-lg" onclick="toggleFaq(this)">
                             Já tentei outros treinamentos e não deu certo.
-                            <i class="fas fa-chevron-down faq-chevron transition-transform shrink-0"></i>
+                            <i class="fas fa-chevron-down faq-chevron transition-transform shrink-0 text-brand-primary"></i>
                         </button>
                         <div class="faq-answer">
-                            <p class="text-white/85 text-sm leading-relaxed pt-3 pr-8">O Impulse não é treinamento motivacional nem fórmula genérica. É um diagnóstico do seu negócio específico, com direção prática para os próximos 90 dias, não mais uma teoria para aplicar "quando der tempo".</p>
+                            <p class="text-brand-textSecondary text-sm leading-relaxed pt-3 pr-8">O Impulse não é treinamento motivacional nem fórmula genérica. É um diagnóstico do seu negócio específico, com direção prática para os próximos 90 dias, não mais uma teoria para aplicar "quando der tempo".</p>
                         </div>
                     </div>
                     <div class="faq-item py-5">
-                        <button type="button" class="faq-question w-full flex items-center justify-between gap-4 text-left text-white font-semibold text-lg" onclick="toggleFaq(this)">
+                        <button type="button" class="faq-question w-full flex items-center justify-between gap-4 text-left text-brand-textPrimary font-semibold text-lg" onclick="toggleFaq(this)">
                             Não tenho tempo para me afastar da empresa por um dia.
-                            <i class="fas fa-chevron-down faq-chevron transition-transform shrink-0"></i>
+                            <i class="fas fa-chevron-down faq-chevron transition-transform shrink-0 text-brand-primary"></i>
                         </button>
                         <div class="faq-answer">
-                            <p class="text-white/85 text-sm leading-relaxed pt-3 pr-8">É exatamente esse padrão, a empresa não funcionar sem você por um dia, que o Impulse existe para resolver. Um dia fora agora evita meses de operação no limite depois.</p>
+                            <p class="text-brand-textSecondary text-sm leading-relaxed pt-3 pr-8">É exatamente esse padrão, a empresa não funcionar sem você por um dia, que o Impulse existe para resolver. Um dia fora agora evita meses de operação no limite depois.</p>
                         </div>
                     </div>
                     <div class="faq-item py-5">
-                        <button type="button" class="faq-question w-full flex items-center justify-between gap-4 text-left text-white font-semibold text-lg" onclick="toggleFaq(this)">
+                        <button type="button" class="faq-question w-full flex items-center justify-between gap-4 text-left text-brand-textPrimary font-semibold text-lg" onclick="toggleFaq(this)">
                             Minha realidade é muito diferente, meu negócio é pequeno/muito específico.
-                            <i class="fas fa-chevron-down faq-chevron transition-transform shrink-0"></i>
+                            <i class="fas fa-chevron-down faq-chevron transition-transform shrink-0 text-brand-primary"></i>
                         </button>
                         <div class="faq-answer">
-                            <p class="text-white/85 text-sm leading-relaxed pt-3 pr-8">O conteúdo trabalha os princípios que sustentam qualquer negócio que cresce: clareza, estrutura e decisão. Não depende do tamanho ou do setor.</p>
+                            <p class="text-brand-textSecondary text-sm leading-relaxed pt-3 pr-8">O conteúdo trabalha os princípios que sustentam qualquer negócio que cresce: clareza, estrutura e decisão. Não depende do tamanho ou do setor.</p>
                         </div>
                     </div>
                     <div class="faq-item py-5">
-                        <button type="button" class="faq-question w-full flex items-center justify-between gap-4 text-left text-white font-semibold text-lg" onclick="toggleFaq(this)">
+                        <button type="button" class="faq-question w-full flex items-center justify-between gap-4 text-left text-brand-textPrimary font-semibold text-lg" onclick="toggleFaq(this)">
                             E se eu travar depois, sem o Mateus por perto?
-                            <i class="fas fa-chevron-down faq-chevron transition-transform shrink-0"></i>
+                            <i class="fas fa-chevron-down faq-chevron transition-transform shrink-0 text-brand-primary"></i>
                         </button>
                         <div class="faq-answer">
-                            <p class="text-white/85 text-sm leading-relaxed pt-3 pr-8">Você sai com um Plano de 90 Dias estruturado, não com uma ideia solta. A direção fica com você, não depende de acompanhamento contínuo.</p>
+                            <p class="text-brand-textSecondary text-sm leading-relaxed pt-3 pr-8">Você sai com um Plano de 90 Dias estruturado, não com uma ideia solta. A direção fica com você, não depende de acompanhamento contínuo.</p>
                         </div>
                     </div>
-                    <button type="button" onclick="abrirPopup()" class="btn-shimmer btn-gold font-bold uppercase tracking-wider text-sm py-4 px-10 rounded-xl hover:-translate-y-1 transition-all mt-8">
+                    <button type="button" onclick="abrirPopup()" class="btn-shimmer btn-gold btn-pill mt-8 shadow-[0_8px_24px_rgba(163,136,70,.25)]">
                         Já esclareci minhas dúvidas, quero minha vaga
                     </button>
                 </div>
@@ -944,7 +1047,7 @@
                     <h4 class="text-brand-textPrimary font-bold uppercase tracking-widest text-xs mb-6">Suporte</h4>
                     <ul class="space-y-3 text-sm text-brand-textSecondary">
                         <li>
-                            <a href="https://api.whatsapp.com/send/?phone=5511942371409&text=Ol%C3%A1%2C+vim+pelo+site+do+Impulse+Empresarial+Mogi+Mirim&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="hover:text-brand-success flex items-center gap-2 transition-colors">
+                            <a href="https://api.whatsapp.com/send/?phone=5511942371409&text=Ol%C3%A1%2C+vim+pelo+site+do+Impulse+Empresarial+Mogi+Mirim&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="hover:text-brand-primary flex items-center gap-2 transition-colors">
                                 <i class="fab fa-whatsapp"></i> WhatsApp Suporte
                             </a>
                         </li>
@@ -955,7 +1058,7 @@
             <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                 <p class="text-brand-textMuted text-xs">&copy; 2026 Impulse Empresarial, Mogi Mirim/SP. Todos os direitos reservados.</p>
                 <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-brand-textMuted">
-                    <span class="w-2 h-2 rounded-full bg-brand-success animate-pulse"></span> Ambiente 100% Seguro
+                    <span class="w-2 h-2 rounded-full bg-brand-primary animate-pulse"></span> Ambiente 100% Seguro
                 </div>
             </div>
         </div>
@@ -963,7 +1066,7 @@
 
     <!-- STICKY CTA MOBILE -->
     <div id="sticky-cta" class="sticky-cta fixed bottom-0 left-0 right-0 z-40 md:hidden p-4 bg-brand-bg/95 backdrop-blur-xl border-t border-white/10">
-        <button type="button" onclick="abrirPopup()" class="btn-shimmer btn-gold w-full font-bold uppercase tracking-wider text-xs py-4 rounded-xl">
+        <button type="button" onclick="abrirPopup()" class="btn-shimmer btn-gold btn-pill w-full text-xs">
             Garantir vaga por R$147
         </button>
     </div>
@@ -1041,33 +1144,6 @@
             }
             animate();
         })();
-
-        /* ─── Marquee galeria ─── */
-        const GALLERY = [
-            'assets/asset%201.webp','assets/asset%202.webp','assets/asset%203.webp','assets/asset%204.webp',
-            'assets/asset%206.webp','assets/asset%207.webp','assets/asset%208.webp','assets/asset%209.webp',
-            'assets/asset%2010.webp','assets/asset%2011.webp','assets/asset%2013.webp','assets/asset%2014.webp'
-        ];
-        const MARQUEE_ITEM_PX = 19 * 16; // 18rem width + 1rem gap
-        function buildMarquee(id, imgs) {
-            const el = document.getElementById(id);
-            if (!el) return;
-            // The CSS animation translates the track by exactly -50%, so the
-            // track must be two identical halves. Repeat the source images
-            // enough times per half so a half always covers the viewport,
-            // otherwise wide screens would show a gap once the loop repeats.
-            const repeatsPerHalf = Math.max(1, Math.ceil(window.innerWidth / (imgs.length * MARQUEE_ITEM_PX)));
-            const half = Array.from({ length: repeatsPerHalf }, () => imgs).flat();
-            const items = [...half, ...half];
-            items.forEach((src, i) => {
-                const item = document.createElement('div');
-                item.className = 'marquee-item';
-                item.innerHTML = `<img src="${src}" alt="Impulse Empresarial ${(i % imgs.length) + 1}" loading="lazy">`;
-                el.appendChild(item);
-            });
-        }
-        buildMarquee('marquee-row-1', GALLERY.slice(0, 6));
-        buildMarquee('marquee-row-2', GALLERY.slice(6));
 
         /* ─── Vídeos depoimento ─── */
         document.querySelectorAll('.depoimento-video-poster').forEach(btn => {
