@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth overflow-x-hidden">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impulse Empresarial | Mogi Mirim/SP · 29 de Julho</title>
+    <meta name="description" content="Encontro presencial de um dia para empresários em Mogi Mirim/SP. Com Mateus Ribeiro. Investimento: R$147.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            bg: '#050506',
+                            surface: '#19191B',
+                            darkgray: '#0d0d0f',
+                            goldLight: '#E2BE7C',
+                            goldDeep: '#A38846',
+                            brownDark: '#704323',
+                            primary: '#E2BE7C',
+                            primaryHover: '#A38846',
+                            accent: '#A38846',
+                            textPrimary: '#FDFEFE',
+                            textSecondary: '#A1A0A4',
+                            textMuted: '#6b6a6e',
+                            success: '#4ade80',
+                            danger: '#f87171',
+                            border: 'rgba(255, 255, 255, 0.1)'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+                        display: ['Playfair Display', 'Georgia', 'serif'],
+                    },
+                    animation: {
+                        shimmer: 'shimmer 1.6s infinite',
+                        marquee: 'marquee 55s linear infinite',
+                        'marquee-reverse': 'marquee-reverse 55s linear infinite',
+                        pulse: 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        shimmer: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(340%)' }
+                        },
+                        marquee: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-50%)' }
+                        },
+                        'marquee-reverse': {
+                            '0%': { transform: 'translateX(-50%)' },
+                            '100%': { transform: 'translateX(0)' }
+                        }
+                    },
+                    maxWidth: { content: '1300px' }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html { scrollbar-width: thin; scrollbar-color: #A38846 #050506; }
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #050506; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #E2BE7C, #A38846); border-radius: 9999px; }
+
+        h1, h2, h3 { font-family: 'Inter', sans-serif; font-weight: 800; }
+
+        .glass-strong {
+            background: linear-gradient(145deg, rgba(30,30,32,.82), rgba(20,20,22,.72));
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,.08);
+            box-shadow: 0 8px 32px rgba(0,0,0,.25);
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, #E2BE7C 0%, #A38846 100%);
+            color: #050506;
+        }
+        .btn-gold:hover {
+            box-shadow: 0 0 40px rgba(163,136,70,.45);
+        }
+
+        .btn-shimmer { position: relative; overflow: hidden; }
+        .btn-shimmer::before {
+            content: '';
+            position: absolute; top: 0; left: -100%;
+            width: 60%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
+        }
+        .btn-shimmer:hover::before { animation: shimmer 1.4s infinite; }
+
+        .section-eyebrow {
+            font-size: .6875rem; font-weight: 600; letter-spacing: .28em;
+            text-transform: uppercase; color: rgba(161,160,164,.9); margin-bottom: 1rem;
+        }
+        .section-eyebrow--gold { color: rgba(226,190,124,.75); }
+        .title-accent { color: #E2BE7C; font-style: italic; }
+
+        .hero-bg-img { object-position: 72% 28%; filter: brightness(1.1) contrast(1.04); }
+        .hero-overlay-left {
+            background: linear-gradient(to right, rgba(5,5,6,.92) 0%, rgba(5,5,6,.55) 42%, rgba(5,5,6,.12) 72%, transparent 100%);
+        }
+        .hero-overlay-bottom {
+            background: linear-gradient(to top, rgba(5,5,6,.8) 0%, transparent 60%);
+        }
+        .hero-mobile-visual img { width: 100%; max-height: 52vh; object-fit: cover; object-position: center top; }
+        .hero-mobile-fade {
+            position: absolute; inset: auto 0 0 0; height: 55%;
+            background: linear-gradient(to bottom, transparent, #131313);
+        }
+
+        .pain-card {
+            border: 1px solid rgba(226,190,124,.2);
+            background: linear-gradient(145deg, rgba(25,25,27,.9), rgba(5,5,6,.85));
+            transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
+        }
+        .pain-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(226,190,124,.45);
+            box-shadow: 0 16px 40px rgba(0,0,0,.4);
+        }
+        .pain-number {
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            line-height: 1;
+            color: rgba(226,190,124,.25);
+            font-weight: 900;
+        }
+
+        .compare-card { border-radius: 1.25rem; padding: 2rem; height: 100%; }
+        .compare-card--wrong {
+            background: linear-gradient(165deg, rgba(30,20,20,.95), rgba(15,10,10,.98));
+            border: 1px solid rgba(248,113,113,.2);
+        }
+        .compare-card--right {
+            background: linear-gradient(165deg, rgba(20,25,20,.95), rgba(10,12,10,.98));
+            border: 1px solid rgba(74,222,128,.2);
+        }
+
+        .marquee-mask {
+            mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+        }
+        .marquee-track { display: flex; width: max-content; gap: 1rem; }
+        .marquee-item {
+            position: relative;
+            flex-shrink: 0; width: 18rem; height: 12rem;
+            border-radius: 1rem; overflow: hidden;
+            border: 1px solid rgba(226,190,124,.15);
+        }
+        .marquee-item img {
+            position: absolute; inset: 0;
+            display: block; width: 100%; height: 100%;
+            object-fit: cover;
+        }
+
+        .qualify-card {
+            border-radius: 1.75rem; padding: 2px;
+            transition: transform .4s ease;
+        }
+        .qualify-card:hover { transform: translateY(-6px); }
+        .qualify-card--yes {
+            background: linear-gradient(145deg, rgba(226,190,124,.55), rgba(163,136,70,.25));
+        }
+        .qualify-card--no {
+            background: linear-gradient(145deg, rgba(161,160,164,.25), rgba(80,80,85,.15));
+        }
+        .qualify-card-inner {
+            border-radius: 1.65rem; padding: 2rem; height: 100%;
+            background: linear-gradient(165deg, rgba(14,14,16,.98), rgba(5,5,6,.99));
+        }
+
+        .module-card {
+            border: 1px solid rgba(226,190,124,.15);
+            background: linear-gradient(145deg, rgba(25,25,27,.95), rgba(10,10,11,.98));
+            transition: transform .35s ease, border-color .35s ease;
+        }
+        .module-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(226,190,124,.4);
+        }
+
+        .depoimento-video-frame {
+            position: relative; width: 100%; max-width: 14rem; margin: 0 auto;
+            aspect-ratio: 9/16; border-radius: 1rem; overflow: hidden;
+            background: #000; box-shadow: 0 12px 32px rgba(0,0,0,.3);
+        }
+        .depoimento-video-frame iframe,
+        .depoimento-video-poster { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+        .depoimento-video-poster { cursor: pointer; object-fit: cover; }
+        .depoimento-play {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+            width: 3.5rem; height: 3.5rem; border-radius: 50%;
+            background: rgba(220,38,38,.9); color: #fff;
+            display: flex; align-items: center; justify-content: center;
+            pointer-events: none; box-shadow: 0 8px 24px rgba(0,0,0,.4);
+        }
+
+        .pricing-card {
+            border-radius: 1.75rem; overflow: hidden;
+            background: linear-gradient(155deg, #1a1a1c, #0a0a0b);
+            border: 1px solid rgba(226,190,124,.25);
+            box-shadow: 0 32px 64px rgba(0,0,0,.5), 0 0 60px rgba(226,190,124,.08);
+        }
+
+        .faq-section {
+            background: linear-gradient(135deg, #C5A367 0%, #A38846 50%, #946240 100%);
+        }
+        .faq-item { border-bottom: 1px solid rgba(255,255,255,.2); }
+        .faq-question { cursor: pointer; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height .4s ease; }
+        .faq-item.is-open .faq-answer { max-height: 20rem; }
+        .faq-item.is-open .faq-chevron { transform: rotate(180deg); }
+
+        .timer-box {
+            background: rgba(226,190,124,.1);
+            border: 1px solid rgba(226,190,124,.25);
+        }
+        .timer-digit {
+            font-variant-numeric: tabular-nums;
+            font-size: clamp(1.5rem, 4vw, 2.25rem);
+            font-weight: 800; color: #E2BE7C;
+        }
+
+        .sticky-cta {
+            transform: translateY(100%);
+            transition: transform .35s ease;
+        }
+        .sticky-cta.is-visible { transform: translateY(0); }
+
+        @media (min-width: 1024px) {
+            body.custom-cursor { cursor: none; }
+            .cursor-dot, .cursor-ring {
+                position: fixed; pointer-events: none; z-index: 9999;
+                border-radius: 50%; transform: translate(-50%,-50%);
+            }
+            .cursor-dot { width: 6px; height: 6px; background: #E2BE7C; }
+            .cursor-ring {
+                width: 36px; height: 36px;
+                border: 1px solid rgba(226,190,124,.5);
+                transition: width .2s, height .2s, border-color .2s;
+            }
+            .cursor-ring.is-hover { width: 52px; height: 52px; border-color: #E2BE7C; }
+        }
+
+        .popup-captura.flex { display: flex; }
+    </style>
+</head>
+<body class="bg-brand-bg text-brand-textPrimary font-sans antialiased custom-cursor">
+
+    <div class="cursor-dot hidden lg:block" id="cursor-dot"></div>
+    <div class="cursor-ring hidden lg:block" id="cursor-ring"></div>
+
+    <!-- HERO -->
+    <header id="hero" class="relative overflow-hidden md:min-h-screen md:flex md:items-center md:pt-20 md:pb-16">
+        <div class="hidden md:block absolute inset-0 z-0">
+            <img src="assets/asset%2024.webp" alt="" class="hero-bg-img w-full h-full object-cover" loading="eager">
+            <div class="absolute inset-0 hero-overlay-left"></div>
+            <div class="absolute inset-0 hero-overlay-bottom"></div>
+        </div>
+        <div class="hero-mobile-visual md:hidden relative bg-[#131313]">
+            <img src="assets/asset%2026.webp" alt="" loading="eager">
+            <div class="hero-mobile-fade"></div>
+        </div>
+        <div class="relative z-10 w-full pt-8 pb-12 md:pt-0 md:pb-0 bg-[#131313] md:bg-transparent">
+            <div class="container mx-auto px-6 max-w-content text-center md:text-left">
+                <div data-aos="fade-right">
+                    <img src="assets/asset%200.webp" alt="LEX" class="h-20 md:h-24 w-auto mx-auto md:mx-0 mb-8">
+                    <p class="text-brand-primary text-xs font-bold uppercase tracking-[0.25em] mb-4">Mogi Mirim/SP · 29 de julho de 2026</p>
+                    <h1 class="text-3xl md:text-5xl lg:text-[3.25rem] font-black leading-[1.12] text-brand-textPrimary mb-6 tracking-tight md:max-w-[60%]">
+                        Você já construiu uma empresa. Agora é hora de construir o <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-goldLight to-brand-goldDeep">crescimento que ela merece.</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-brand-textSecondary max-w-2xl font-light leading-relaxed mb-8 md:mx-0 mx-auto">
+                        Um encontro presencial de um dia para empresários que faturam, têm equipe e responsabilidade, mas sentem que o negócio está operando abaixo do que poderia. Com Mateus Ribeiro.
+                    </p>
+                    <button type="button" onclick="abrirPopup()" class="btn-shimmer btn-gold w-full sm:w-auto font-bold uppercase tracking-wider text-sm py-5 px-8 rounded-xl shadow-[0_0_30px_rgba(163,136,70,.35)] hover:-translate-y-1 transition-all mb-8">
+                        Quero garantir minha vaga em Mogi Mirim por R$147
+                    </button>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-8 border-t border-white/10 max-w-3xl">
+                        <div class="glass-strong rounded-xl p-4 flex items-center gap-3">
+                            <i class="far fa-calendar text-brand-primary text-xl"></i>
+                            <div class="text-left">
+                                <p class="text-[10px] uppercase tracking-widest text-brand-textMuted font-bold">Data</p>
+                                <p class="text-sm font-semibold">29/07/2026</p>
+                            </div>
+                        </div>
+                        <div class="glass-strong rounded-xl p-4 flex items-center gap-3">
+                            <i class="fas fa-map-marker-alt text-brand-primary text-xl"></i>
+                            <div class="text-left">
+                                <p class="text-[10px] uppercase tracking-widest text-brand-textMuted font-bold">Local</p>
+                                <p class="text-sm font-semibold">Mogi Mirim/SP</p>
+                                <p class="text-xs text-brand-textSecondary">[Local a confirmar]</p>
+                            </div>
+                        </div>
+                        <div class="glass-strong rounded-xl p-4 flex items-center gap-3">
+                            <i class="fas fa-users text-brand-primary text-xl"></i>
+                            <div class="text-left">
+                                <p class="text-[10px] uppercase tracking-widest text-brand-textMuted font-bold">Vagas</p>
+                                <p class="text-sm font-semibold">Limitadas</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- DOR -->
+    <section id="problema" class="py-24 bg-brand-surface relative overflow-hidden border-y border-white/5">
+        <div class="absolute inset-0 z-0 pointer-events-none opacity-[0.06]">
+            <img src="assets/asset%206.webp" alt="" class="w-full h-full object-cover">
+        </div>
+        <div class="container mx-auto px-6 max-w-content relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <p class="section-eyebrow section-eyebrow--gold" data-aos="fade-up">Diagnóstico</p>
+                <h2 class="text-3xl md:text-4xl font-black text-brand-textPrimary mb-6" data-aos="fade-up">
+                    Seja honesto consigo <span class="title-accent">por um segundo</span>
+                </h2>
+                <p class="text-brand-textSecondary text-lg" data-aos="fade-up" data-aos-delay="100">
+                    Isso não acontece por falta de esforço. Acontece por falta de estrutura estratégica.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="pain-card rounded-2xl p-8" data-aos="fade-right">
+                    <span class="pain-number block mb-4">1</span>
+                    <p class="text-brand-textPrimary text-lg leading-relaxed">Seu negócio depende demais de você para funcionar</p>
+                </div>
+                <div class="pain-card rounded-2xl p-8" data-aos="fade-left">
+                    <span class="pain-number block mb-4">2</span>
+                    <p class="text-brand-textPrimary text-lg leading-relaxed">Você ainda resolve coisas que o seu time deveria resolver</p>
+                </div>
+                <div class="pain-card rounded-2xl p-8" data-aos="fade-right" data-aos-delay="100">
+                    <span class="pain-number block mb-4">3</span>
+                    <p class="text-brand-textPrimary text-lg leading-relaxed">Você trabalha muito, mas sabe que poderia estar faturando mais</p>
+                </div>
+                <div class="pain-card rounded-2xl p-8" data-aos="fade-left" data-aos-delay="100">
+                    <span class="pain-number block mb-4">4</span>
+                    <p class="text-brand-textPrimary text-lg leading-relaxed">Você sente que está perto de algo grande, mas ainda não destravou</p>
+                </div>
+            </div>
+            <div class="text-center mt-12" data-aos="fade-up">
+                <button type="button" onclick="abrirPopup()" class="btn-shimmer btn-gold font-bold uppercase tracking-wider text-sm py-4 px-10 rounded-xl hover:-translate-y-1 transition-all">
+                    Quero resolver isso em Mogi Mirim
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPARAÇÃO -->
+    <section id="comparacao" class="py-24 bg-brand-bg relative overflow-hidden">
+        <div class="container mx-auto px-6 max-w-content">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <p class="section-eyebrow" data-aos="fade-up">A raiz do problema</p>
+                <h2 class="text-2xl md:text-4xl font-black text-brand-textPrimary leading-tight" data-aos="fade-up">
+                    Por que trabalhar mais não está funcionando. Nunca vai ser <span class="title-accent">sem isso</span>
+                </h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="compare-card compare-card--wrong" data-aos="fade-right">
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="assets/asset%2018.svg" alt="" class="w-8 h-8 text-brand-danger" style="filter: invert(55%) sepia(80%) saturate(500%) hue-rotate(320deg);">
+                        <h3 class="text-xl font-bold text-brand-textPrimary">O que você acha que é o problema</h3>
+                    </div>
+                    <ul class="space-y-4 text-brand-textSecondary">
+                        <li class="flex items-start gap-3"><i class="fas fa-times text-brand-danger mt-1 shrink-0"></i> Precisa vender mais</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-times text-brand-danger mt-1 shrink-0"></i> Precisa contratar mais gente</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-times text-brand-danger mt-1 shrink-0"></i> Precisa trabalhar mais horas</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-times text-brand-danger mt-1 shrink-0"></i> Precisa de mais disciplina</li>
+                    </ul>
+                </div>
+                <div class="compare-card compare-card--right" data-aos="fade-left">
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="assets/asset%2019.svg" alt="" class="w-8 h-8" style="filter: invert(75%) sepia(30%) saturate(600%) hue-rotate(80deg);">
+                        <h3 class="text-xl font-bold text-brand-textPrimary">O que realmente está travando</h3>
+                    </div>
+                    <ul class="space-y-4 text-brand-textSecondary">
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-brand-success mt-1 shrink-0"></i> Falta direção estratégica clara</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-brand-success mt-1 shrink-0"></i> Falta processo que sustente o crescimento</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-brand-success mt-1 shrink-0"></i> Falta decisão madura, não mais esforço</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-brand-success mt-1 shrink-0"></i> Falta o dono sair da operação e assumir a governança</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center mt-12" data-aos="fade-up">
+                <button type="button" onclick="abrirPopup()" class="btn-shimmer btn-gold font-bold uppercase tracking-wider text-sm py-4 px-10 rounded-xl shadow-[0_0_30px_rgba(163,136,70,.35)] hover:-translate-y-1 transition-all">
+                    Garantir minha vaga em Mogi Mirim
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTEÚDO -->
+    <section id="conteudo" class="py-24 bg-brand-brownDark relative overflow-hidden border-y border-white/5">
+        <div class="container mx-auto px-6 max-w-content relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="relative rounded-2xl overflow-hidden" data-aos="fade-right">
+                    <img src="assets/asset%205.webp" alt="Mateus Ribeiro conduzindo o Impulse Empresarial" class="w-full rounded-2xl border border-white/10 object-cover aspect-[4/5]" loading="lazy">
+                </div>
+                <div data-aos="fade-left">
+                    <p class="section-eyebrow section-eyebrow--gold">O encontro</p>
+                    <h2 class="text-3xl md:text-4xl font-black text-brand-textPrimary mb-8 leading-tight">
+                        O que acontece dentro do <span class="title-accent">Impulse</span>
+                    </h2>
+                    <ul class="space-y-6">
+                        <li class="flex gap-4">
+                            <div class="w-10 h-10 shrink-0 rounded-lg bg-brand-primary/10 flex items-center justify-center text-brand-primary"><i class="fas fa-search"></i></div>
+                            <div>
+                                <h4 class="font-bold text-brand-textPrimary mb-1">Diagnóstico de Realidade</h4>
+                                <p class="text-brand-textSecondary text-sm leading-relaxed">Leitura fria de onde seu negócio está perdendo dinheiro, energia e foco.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <div class="w-10 h-10 shrink-0 rounded-lg bg-brand-primary/10 flex items-center justify-center text-brand-primary"><i class="fas fa-chart-line"></i></div>
+                            <div>
+                                <h4 class="font-bold text-brand-textPrimary mb-1">Onde está travando o seu crescimento</h4>
+                                <p class="text-brand-textSecondary text-sm leading-relaxed">Identificação clara entre urgência e prioridade, esforço e resultado.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <div class="w-10 h-10 shrink-0 rounded-lg bg-brand-primary/10 flex items-center justify-center text-brand-primary"><i class="fas fa-bullseye"></i></div>
+                            <div>
+                                <h4 class="font-bold text-brand-textPrimary mb-1">Clareza de Prioridades</h4>
+                                <p class="text-brand-textSecondary text-sm leading-relaxed">O que organizar primeiro para o negócio voltar a crescer.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <div class="w-10 h-10 shrink-0 rounded-lg bg-brand-primary/10 flex items-center justify-center text-brand-primary"><i class="fas fa-calendar-check"></i></div>
+                            <div>
+                                <h4 class="font-bold text-brand-textPrimary mb-1">Plano de 90 Dias</h4>
+                                <p class="text-brand-textSecondary text-sm leading-relaxed">Direção prática para aplicar a partir do dia seguinte ao evento.</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <button type="button" onclick="abrirPopup()" class="btn-shimmer btn-gold font-bold uppercase tracking-wider text-sm py-4 px-10 rounded-xl hover:-translate-y-1 transition-all mt-8">
+                        Quero viver esse encontro
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERIA -->
+    <section id="galeria" class="py-16 bg-brand-surface border-y border-white/5 overflow-hidden">
+        <div class="container mx-auto px-6 max-w-content mb-10 text-center">
+            <p class="section-eyebrow text-center" data-aos="fade-up">Edições anteriores</p>
+            <h2 class="text-2xl md:text-4xl font-black text-brand-textPrimary" data-aos="fade-up">Confira a <span class="title-accent">experiência</span></h2>
+        </div>
+        <div class="marquee-mask mb-5"><div id="marquee-row-1" class="animate-marquee marquee-track"></div></div>
+        <div class="marquee-mask"><div id="marquee-row-2" class="animate-marquee-reverse marquee-track"></div></div>
+        <div class="text-center mt-10" data-aos="fade-up">
+            <button type="button" onclick="abrirPopup()" class="btn-shimmer btn-gold font-bold uppercase tracking-wider text-sm py-4 px-10 rounded-xl hover:-translate-y-1 transition-all">
+                Quero fazer parte da próxima edição
+            </button>
+        </div>
+    </section>
+
+    <!-- MENTOR -->
+    <section id="mentor" class="py-24 bg-brand-bg relative overflow-hidden border-y border-white/5">
+        <div class="container mx-auto px-6 max-w-content">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="relative" data-aos="fade-right">
+                    <div class="absolute inset-0 bg-brand-primary/20 rounded-3xl blur-[60px]"></div>
+                    <img src="assets/asset%2012.webp" alt="Mateus Ribeiro" class="relative z-10 w-full rounded-3xl border border-white/10 object-cover aspect-[4/5]" loading="lazy">
+                </div>
+                <div data-aos="fade-left">
+                    <p class="section-eyebrow section-eyebrow--gold">Autoridade</p>
+                    <h2 class="text-3xl md:text-4xl font-black text-brand-textPrimary mb-6 leading-tight">Mateus Ribeiro</h2>
+                    <div class="space-y-5 text-brand-textSecondary text-lg leading-relaxed">
+                        <p>Mais de 20 anos atuando no desenvolvimento de líderes, empresários e organizações. Criador do LEX, do Performind e do Impulse Empresarial, já realizado em grandes capitais do Brasil e fora do país, em Orlando.</p>
+                        <p>Sua marca é a ausência de romantização: fala direto com quem precisa decidir melhor, não com quem busca motivação.</p>
+                    </div>
+                    <button type="button" onclick="abrirPopup()" class="btn-shimmer btn-gold font-bold uppercase tracking-wider text-sm py-4 px-10 rounded-xl hover:-translate-y-1 transition-all mt-8">
+                        Quero aprender com o Mateus
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUALIFICAÇÃO -->
+    <section id="qualificacao" class="py-24 bg-brand-surface relative overflow-hidden border-y border-white/5">
+        <div class="container mx-auto px-6 max-w-content">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <p class="section-eyebrow text-center" data-aos="fade-up">Perfil ideal</p>
+                <h2 class="text-3xl md:text-4xl font-black text-brand-textPrimary" data-aos="fade-up">Para quem é e para quem <span class="title-accent">não é</span></h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="qualify-card qualify-card--no" data-aos="fade-right">
+                    <div class="qualify-card-inner">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 rounded-full bg-red-500/10 flex items-center justify-center text-brand-danger"><i class="fas fa-times"></i></div>
+                            <h3 class="text-xl font-bold">Para quem não é</h3>
+                        </div>
+                        <ul class="space-y-4 text-brand-textSecondary">
+                            <li class="flex gap-3"><i class="fas fa-times text-brand-danger mt-1 shrink-0"></i> Quem busca motivação ou "transformação de vida"</li>
+                            <li class="flex gap-3"><i class="fas fa-times text-brand-danger mt-1 shrink-0"></i> Quem ainda não tem negócio em operação</li>
+                            <li class="flex gap-3"><i class="fas fa-times text-brand-danger mt-1 shrink-0"></i> Quem não está disposto a encarar decisões que vem adiando</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="qualify-card qualify-card--yes" data-aos="fade-left">
+                    <div class="qualify-card-inner">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center text-brand-success"><i class="fas fa-check"></i></div>
+                            <h3 class="text-xl font-bold">Para quem é</h3>
+                        </div>
+                        <ul class="space-y-4 text-brand-textSecondary">
+                            <li class="flex gap-3"><i class="fas fa-check text-brand-success mt-1 shrink-0"></i> Empresário que já tem negócio em operação, com faturamento consistente</li>
+                            <li class="flex gap-3"><i class="fas fa-check text-brand-success mt-1 shrink-0"></i> Quer crescer de forma estruturada, não no improviso</li>
+                            <li class="flex gap-3"><i class="fas fa-check text-brand-success mt-1 shrink-0"></i> Está cansado de apagar incêndio todos os dias</li>
+                            <li class="flex gap-3"><i class="fas fa-check text-brand-success mt-1 shrink-0"></i> Leva o próprio negócio a sério e está pronto para decidir melhor</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12" data-aos="fade-up">
+                <button type="button" onclick="abrirPopup()" class="btn-shimmer btn-gold font-bold uppercase tracking-wider text-sm py-4 px-10 rounded-xl hover:-translate-y-1 transition-all">
+                    Quero sair do improviso
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- MÓDULOS -->
+    <section id="modulos" class="py-24 bg-brand-bg">
+        <div class="container mx-auto px-6 max-w-content">
+            <div class="grid sm:grid-cols-2 gap-6">
+                <div class="module-card rounded-2xl p-8" data-aos="fade-up">
+                    <p class="text-brand-primary text-xs font-bold uppercase tracking-widest mb-2">Módulo 1</p>
+                    <h3 class="text-xl font-bold mb-3">Diagnóstico de Realidade</h3>
+                    <p class="text-brand-textSecondary text-sm leading-relaxed">Leitura fria de onde seu negócio está perdendo dinheiro, energia e foco.</p>
+                </div>
+                <div class="module-card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="100">
+                    <p class="text-brand-primary text-xs font-bold uppercase tracking-widest mb-2">Módulo 2</p>
+                    <h3 class="text-xl font-bold mb-3">Onde está travando o crescimento</h3>
+                    <p class="text-brand-textSecondary text-sm leading-relaxed">Identificação clara entre urgência e prioridade, esforço e resultado.</p>
+                </div>
+                <div class="module-card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="200">
+                    <p class="text-brand-primary text-xs font-bold uppercase tracking-widest mb-2">Módulo 3</p>
+                    <h3 class="text-xl font-bold mb-3">Clareza de Prioridades</h3>
+                    <p class="text-brand-textSecondary text-sm leading-relaxed">O que organizar primeiro para o negócio voltar a crescer.</p>
+                </div>
+                <div class="module-card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="300">
+                    <p class="text-brand-primary text-xs font-bold uppercase tracking-widest mb-2">Módulo 4</p>
+                    <h3 class="text-xl font-bold mb-3">Plano de 90 Dias</h3>
+                    <p class="text-brand-textSecondary text-sm leading-relaxed">Direção prática para aplicar a partir do dia seguinte ao evento.</p>
+                </div>
+            </div>
+            <div class="text-center mt-12" data-aos="fade-up">
+                <button type="button" onclick="abrirPopup()" class="btn-shimmer btn-gold font-bold uppercase tracking-wider text-sm py-4 px-10 rounded-xl hover:-translate-y-1 transition-all">
+                    Quero esses 4 módulos
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROVA SOCIAL -->
+    <section id="prova" class="py-24 bg-brand-surface border-y border-white/5">
+        <div class="container mx-auto px-6 max-w-content text-center">
+            <p class="section-eyebrow text-center" data-aos="fade-up">Prova social</p>
+            <h2 class="text-3xl md:text-4xl font-black text-brand-textPrimary mb-4" data-aos="fade-up">
+                Mais de <span class="title-accent">1000 empresários</span> já passaram pelo Impulse
+            </h2>
+            <p class="text-brand-textSecondary max-w-2xl mx-auto mb-12" data-aos="fade-up">
+                Em edições anteriores, em capitais do Brasil e em Orlando. Confira o que eles falam:
+            </p>
+            <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-8" data-aos="fade-up">
+                <div class="depoimento-video">
+                    <div class="depoimento-video-frame">
+                        <button type="button" class="depoimento-video-poster w-full h-full border-0 p-0 bg-black" data-youtube="jrYNTvGQ_uI" aria-label="Reproduzir depoimento">
+                            <img src="https://i.ytimg.com/vi/jrYNTvGQ_uI/hqdefault.jpg" alt="Depoimento Impulse" class="w-full h-full object-cover">
+                            <span class="depoimento-play"><i class="fas fa-play text-sm ml-0.5"></i></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="depoimento-video">
+                    <div class="depoimento-video-frame">
+                        <button type="button" class="depoimento-video-poster w-full h-full border-0 p-0 bg-black" data-youtube="2Ra3o3XqKRk" aria-label="Reproduzir depoimento">
+                            <img src="https://i.ytimg.com/vi/2Ra3o3XqKRk/hqdefault.jpg" alt="Depoimento Impulse" class="w-full h-full object-cover">
+                            <span class="depoimento-play"><i class="fas fa-play text-sm ml-0.5"></i></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="depoimento-video">
+                    <div class="depoimento-video-frame">
+                        <button type="button" class="depoimento-video-poster w-full h-full border-0 p-0 bg-black" data-youtube="6r5G2Aw2NTc" aria-label="Reproduzir depoimento">
+                            <img src="https://i.ytimg.com/vi/6r5G2Aw2NTc/hqdefault.jpg" alt="Depoimento Impulse" class="w-full h-full object-cover">
+                            <span class="depoimento-play"><i class="fas fa-play text-sm ml-0.5"></i></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <button type="button" onclick="abrirPopup()" class="btn-shimmer btn-gold font-bold uppercase tracking-wider text-sm py-4 px-10 rounded-xl hover:-translate-y-1 transition-all">
+                Quero ser o próximo depoimento
+            </button>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="ingressos" class="py-24 bg-brand-bg relative overflow-hidden">
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand-goldLight/5 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="container mx-auto px-6 max-w-content relative z-10">
+            <div class="text-center mb-10" data-aos="fade-up">
+                <p class="section-eyebrow section-eyebrow--gold">Urgência</p>
+                <h2 class="text-3xl md:text-4xl font-black text-brand-textPrimary mb-4">Vagas limitadas em Mogi Mirim</h2>
+                <p class="text-brand-textSecondary">Data e local fixos: 29/07, Mogi Mirim/SP. Inscrições encerram em 28/07 às 23h59. Não há nova data remarcada para quem perder o prazo nesta cidade.</p>
+            </div>
+
+            <div class="timer-box rounded-2xl p-6 max-w-xl mx-auto mb-12 text-center" data-aos="fade-up">
+                <p class="text-xs font-bold uppercase tracking-widest text-brand-textSecondary mb-4">Inscrições encerram em:</p>
+                <div class="flex justify-center gap-4 md:gap-8" id="countdown">
+                    <div><span class="timer-digit block" id="cd-days">00</span><span class="text-[10px] uppercase tracking-widest text-brand-textMuted">Dias</span></div>
+                    <div><span class="timer-digit block" id="cd-hours">00</span><span class="text-[10px] uppercase tracking-widest text-brand-textMuted">Horas</span></div>
+                    <div><span class="timer-digit block" id="cd-mins">00</span><span class="text-[10px] uppercase tracking-widest text-brand-textMuted">Min</span></div>
+                    <div><span class="timer-digit block" id="cd-secs">00</span><span class="text-[10px] uppercase tracking-widest text-brand-textMuted">Seg</span></div>
+                </div>
+            </div>
+
+            <div class="pricing-card max-w-2xl mx-auto p-8 md:p-10" data-aos="fade-up">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="space-y-4">
+                        <div class="glass-strong rounded-xl p-4 flex items-center gap-3">
+                            <i class="far fa-calendar text-brand-primary"></i>
+                            <div>
+                                <p class="text-[10px] uppercase tracking-widest text-brand-textMuted">Data</p>
+                                <p class="font-semibold">29/07/2026</p>
+                            </div>
+                        </div>
+                        <div class="glass-strong rounded-xl p-4 flex items-center gap-3">
+                            <i class="fas fa-map-marker-alt text-brand-primary"></i>
+                            <div>
+                                <p class="text-[10px] uppercase tracking-widest text-brand-textMuted">Local</p>
+                                <p class="font-semibold">Mogi Mirim/SP</p>
+                                <p class="text-xs text-brand-textSecondary">[Local a confirmar]</p>
+                            </div>
+                        </div>
+                        <div class="glass-strong rounded-xl p-4 flex items-center gap-3">
+                            <img src="assets/asset%2020.svg" alt="" class="w-5 h-5 opacity-70" style="filter: invert(80%) sepia(20%) saturate(500%) hue-rotate(5deg);">
+                            <div>
+                                <p class="text-[10px] uppercase tracking-widest text-brand-textMuted">Vagas</p>
+                                <p class="font-semibold text-sm">Limitadas pela capacidade do local</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center md:text-right">
+                        <p class="text-xs font-bold uppercase tracking-widest text-brand-textMuted mb-2">Investimento</p>
+                        <p class="text-5xl md:text-6xl font-black text-brand-primary mb-2">R$147<span class="text-2xl">,00</span></p>
+                        <p class="text-sm text-brand-textSecondary mb-6">Mogi Mirim/SP · 29/07/2026</p>
+                        <button type="button" onclick="abrirPopup()" class="btn-shimmer btn-gold w-full font-bold uppercase tracking-wider py-4 rounded-xl mb-3 hover:-translate-y-0.5 transition-all">
+                            Garantir vaga por R$147
+                        </button>
+                        <p class="text-xs text-brand-textMuted">Vagas limitadas pela capacidade do local</p>
+                        <div class="flex justify-center md:justify-end gap-2 mt-4 opacity-60">
+                            <i class="fab fa-cc-visa text-2xl"></i>
+                            <i class="fab fa-cc-mastercard text-2xl"></i>
+                            <i class="fab fa-cc-amex text-2xl"></i>
+                            <i class="fab fa-pix text-2xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FECHAMENTO -->
+    <section id="fechamento" class="py-20 bg-brand-surface border-y border-white/5 text-center">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <h2 class="text-2xl md:text-4xl font-black text-brand-textPrimary mb-6" data-aos="fade-up">
+                Você pode continuar fazendo do mesmo jeito. Ou pode escolher <span class="title-accent">clareza.</span>
+            </h2>
+            <p class="text-brand-textSecondary text-lg leading-relaxed mb-8" data-aos="fade-up">
+                O Impulse Empresarial não promete um caminho fácil. Promete direção real para quem está pronto para decidir melhor.
+            </p>
+            <button type="button" onclick="abrirPopup()" class="btn-shimmer btn-gold font-bold uppercase tracking-wider text-sm py-4 px-10 rounded-xl hover:-translate-y-1 transition-all" data-aos="fade-up">
+                Eu quero essa clareza para meu negócio
+            </button>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq-section py-20 md:py-28">
+        <div class="container mx-auto px-6 max-w-content">
+            <div class="grid lg:grid-cols-12 gap-12 items-start">
+                <div class="lg:col-span-4" data-aos="fade-right">
+                    <h2 class="font-display text-6xl md:text-8xl font-bold text-white leading-none">FAQ</h2>
+                </div>
+                <div class="lg:col-span-8 space-y-0" data-aos="fade-left">
+                    <div class="faq-item is-open py-5">
+                        <button type="button" class="faq-question w-full flex items-center justify-between gap-4 text-left text-white font-semibold text-lg" onclick="toggleFaq(this)">
+                            Isso funciona para o meu tipo de negócio?
+                            <i class="fas fa-chevron-down faq-chevron transition-transform shrink-0"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p class="text-white/85 text-sm leading-relaxed pt-3 pr-8">O Impulse trabalha estratégia, estrutura e decisão: princípios que se aplicam a qualquer negócio com faturamento consistente e equipe, independente do setor.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item py-5">
+                        <button type="button" class="faq-question w-full flex items-center justify-between gap-4 text-left text-white font-semibold text-lg" onclick="toggleFaq(this)">
+                            Já tentei outros treinamentos e não deu certo.
+                            <i class="fas fa-chevron-down faq-chevron transition-transform shrink-0"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p class="text-white/85 text-sm leading-relaxed pt-3 pr-8">O Impulse não é treinamento motivacional nem fórmula genérica. É um diagnóstico do seu negócio específico, com direção prática para os próximos 90 dias, não mais uma teoria para aplicar "quando der tempo".</p>
+                        </div>
+                    </div>
+                    <div class="faq-item py-5">
+                        <button type="button" class="faq-question w-full flex items-center justify-between gap-4 text-left text-white font-semibold text-lg" onclick="toggleFaq(this)">
+                            Não tenho tempo para me afastar da empresa por um dia.
+                            <i class="fas fa-chevron-down faq-chevron transition-transform shrink-0"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p class="text-white/85 text-sm leading-relaxed pt-3 pr-8">É exatamente esse padrão, a empresa não funcionar sem você por um dia, que o Impulse existe para resolver. Um dia fora agora evita meses de operação no limite depois.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item py-5">
+                        <button type="button" class="faq-question w-full flex items-center justify-between gap-4 text-left text-white font-semibold text-lg" onclick="toggleFaq(this)">
+                            Minha realidade é muito diferente, meu negócio é pequeno/muito específico.
+                            <i class="fas fa-chevron-down faq-chevron transition-transform shrink-0"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p class="text-white/85 text-sm leading-relaxed pt-3 pr-8">O conteúdo trabalha os princípios que sustentam qualquer negócio que cresce: clareza, estrutura e decisão. Não depende do tamanho ou do setor.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item py-5">
+                        <button type="button" class="faq-question w-full flex items-center justify-between gap-4 text-left text-white font-semibold text-lg" onclick="toggleFaq(this)">
+                            E se eu travar depois, sem o Mateus por perto?
+                            <i class="fas fa-chevron-down faq-chevron transition-transform shrink-0"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p class="text-white/85 text-sm leading-relaxed pt-3 pr-8">Você sai com um Plano de 90 Dias estruturado, não com uma ideia solta. A direção fica com você, não depende de acompanhamento contínuo.</p>
+                        </div>
+                    </div>
+                    <button type="button" onclick="abrirPopup()" class="btn-shimmer btn-gold font-bold uppercase tracking-wider text-sm py-4 px-10 rounded-xl hover:-translate-y-1 transition-all mt-8">
+                        Já esclareci minhas dúvidas, quero minha vaga
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-darkgray border-t border-white/5 pt-16 pb-24 relative z-20">
+        <div class="container mx-auto px-6 max-w-content">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-12">
+                <div class="lg:col-span-4 space-y-4">
+                    <a href="#hero" class="inline-block hover:opacity-80 transition-opacity mb-4">
+                        <img src="assets/asset%200.webp" alt="Impulse Empresarial" class="h-10 w-auto">
+                    </a>
+                    <p class="text-brand-textSecondary text-sm leading-relaxed max-w-sm">
+                        Encontro presencial de um dia para empresários que querem crescer com estrutura, clareza e decisão. Com Mateus Ribeiro.
+                    </p>
+                </div>
+                <div class="lg:col-span-2 lg:col-start-7">
+                    <h4 class="text-brand-textPrimary font-bold uppercase tracking-widest text-xs mb-6">Navegação</h4>
+                    <ul class="space-y-3 text-sm text-brand-textSecondary">
+                        <li><a href="#problema" class="hover:text-brand-primary transition-colors">A Dor</a></li>
+                        <li><a href="#conteudo" class="hover:text-brand-primary transition-colors">O Evento</a></li>
+                        <li><a href="#mentor" class="hover:text-brand-primary transition-colors">Mentor</a></li>
+                        <li><a href="#ingressos" class="hover:text-brand-primary transition-colors">Ingressos</a></li>
+                    </ul>
+                </div>
+                <div class="lg:col-span-2">
+                    <h4 class="text-brand-textPrimary font-bold uppercase tracking-widest text-xs mb-6">Legal</h4>
+                    <ul class="space-y-3 text-sm text-brand-textSecondary">
+                        <li><a href="#" class="hover:text-brand-primary transition-colors">Termos de Uso</a></li>
+                        <li><a href="#" class="hover:text-brand-primary transition-colors">Política de Privacidade</a></li>
+                        <li><a href="#" class="hover:text-brand-primary transition-colors">Aviso Legal</a></li>
+                    </ul>
+                </div>
+                <div class="lg:col-span-2">
+                    <h4 class="text-brand-textPrimary font-bold uppercase tracking-widest text-xs mb-6">Suporte</h4>
+                    <ul class="space-y-3 text-sm text-brand-textSecondary">
+                        <li>
+                            <a href="https://api.whatsapp.com/send/?phone=5511942371409&text=Ol%C3%A1%2C+vim+pelo+site+do+Impulse+Empresarial+Mogi+Mirim&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="hover:text-brand-success flex items-center gap-2 transition-colors">
+                                <i class="fab fa-whatsapp"></i> WhatsApp Suporte
+                            </a>
+                        </li>
+                        <li><a href="mailto:contato@lex.com.br" class="hover:text-white transition-colors">contato@lex.com.br</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-brand-textMuted text-xs">&copy; 2026 Impulse Empresarial, Mogi Mirim/SP. Todos os direitos reservados.</p>
+                <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-brand-textMuted">
+                    <span class="w-2 h-2 rounded-full bg-brand-success animate-pulse"></span> Ambiente 100% Seguro
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- STICKY CTA MOBILE -->
+    <div id="sticky-cta" class="sticky-cta fixed bottom-0 left-0 right-0 z-40 md:hidden p-4 bg-brand-bg/95 backdrop-blur-xl border-t border-white/10">
+        <button type="button" onclick="abrirPopup()" class="btn-shimmer btn-gold w-full font-bold uppercase tracking-wider text-xs py-4 rounded-xl">
+            Garantir vaga por R$147
+        </button>
+    </div>
+
+    <!-- POPUP CAPTURA -->
+    <div id="popup-captura" class="popup-captura fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-brand-bg/90 backdrop-blur-xl" aria-hidden="true">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand-goldLight/10 rounded-full blur-[100px] pointer-events-none"></div>
+        <div class="relative bg-brand-surface border border-white/10 rounded-3xl shadow-[0_0_80px_rgba(226,190,124,0.15)] max-w-md w-full p-8 md:p-10">
+            <button type="button" onclick="fecharPopup()" class="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:bg-brand-goldDeep flex items-center justify-center text-brand-textSecondary transition-all" aria-label="Fechar">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="text-center mb-8">
+                <img src="assets/asset%200.webp" alt="Impulse Empresarial" class="h-16 w-auto mx-auto mb-4">
+                <div class="text-brand-primary text-[10px] font-black uppercase tracking-[0.2em] mb-2">Impulse Empresarial</div>
+                <h3 class="font-black text-2xl text-brand-textPrimary uppercase tracking-tight mb-2">Garanta sua Vaga</h3>
+                <p class="text-sm text-brand-textSecondary">Mogi Mirim/SP · 29/07/2026 · R$147</p>
+            </div>
+            <form id="form-captura-impulse" class="space-y-4 mt-6 popup-form"
+                data-checkout="https://payfast.greenn.com.br/PLACEHOLDER_CHECKOUT"
+                data-webhook="https://hook.us2.make.com/6qaglponybteo2l6d187c5p91i7r1tae?produto=impulse-mogi-mirim"
+                data-produto="Impulse Empresarial — Mogi Mirim/SP">
+                <div>
+                    <label for="lead-nome" class="block text-sm font-medium text-gray-300 mb-1">Nome</label>
+                    <input type="text" id="lead-nome" name="nome" required placeholder="Seu nome completo" class="w-full px-4 py-3 rounded-lg bg-brand-bg border border-white/10 text-white placeholder-gray-500 focus:border-brand-primary focus:ring-1 focus:ring-brand-primary outline-none transition">
+                </div>
+                <div>
+                    <label for="lead-email" class="block text-sm font-medium text-gray-300 mb-1">Email</label>
+                    <input type="email" id="lead-email" name="email" required placeholder="seu@email.com" class="w-full px-4 py-3 rounded-lg bg-brand-bg border border-white/10 text-white placeholder-gray-500 focus:border-brand-primary focus:ring-1 focus:ring-brand-primary outline-none transition">
+                </div>
+                <div>
+                    <label for="lead-phone" class="block text-sm font-medium text-gray-300 mb-1">Telefone</label>
+                    <div class="flex rounded-lg overflow-hidden border border-white/10 focus-within:border-brand-primary focus-within:ring-1 focus-within:ring-brand-primary bg-brand-bg">
+                        <span class="inline-flex items-center px-4 py-3 bg-brand-primary text-black font-bold select-none shrink-0">+55</span>
+                        <input type="tel" id="lead-phone" name="phone" required placeholder="(11) 99999-9999" maxlength="15" autocomplete="tel" class="flex-1 px-4 py-3 bg-transparent text-white placeholder-gray-500 outline-none min-w-0 mask-telefone">
+                    </div>
+                    <p class="error-msg text-red-400 text-xs mt-1 hidden">Informe o DDD e o número completo.</p>
+                </div>
+                <input type="hidden" name="utm_source" value="">
+                <input type="hidden" name="utm_term" value="">
+                <input type="hidden" name="utm_campaign" value="">
+                <input type="hidden" name="utm_medium" value="">
+                <input type="hidden" name="utm_content" value="">
+                <input type="hidden" name="url" value="">
+                <button type="submit" class="btn-shimmer btn-gold w-full font-bold py-4 rounded-xl uppercase tracking-widest hover:shadow-[0_0_20px_rgba(226,190,124,0.6)] transition btn-submit mt-2">
+                    Avançar para Pagamento
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true, offset: 50, duration: 800 });
+
+        /* ─── Custom cursor ─── */
+        (function() {
+            if (window.innerWidth < 1024) return;
+            const dot = document.getElementById('cursor-dot');
+            const ring = document.getElementById('cursor-ring');
+            if (!dot || !ring) return;
+            let mx = 0, my = 0, rx = 0, ry = 0;
+            document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+            document.querySelectorAll('a, button, [onclick]').forEach(el => {
+                el.addEventListener('mouseenter', () => ring.classList.add('is-hover'));
+                el.addEventListener('mouseleave', () => ring.classList.remove('is-hover'));
+            });
+            function animate() {
+                rx += (mx - rx) * 0.15;
+                ry += (my - ry) * 0.15;
+                dot.style.left = mx + 'px';
+                dot.style.top = my + 'px';
+                ring.style.left = rx + 'px';
+                ring.style.top = ry + 'px';
+                requestAnimationFrame(animate);
+            }
+            animate();
+        })();
+
+        /* ─── Marquee galeria ─── */
+        const GALLERY = [
+            'assets/asset%201.webp','assets/asset%202.webp','assets/asset%203.webp','assets/asset%204.webp',
+            'assets/asset%206.webp','assets/asset%207.webp','assets/asset%208.webp','assets/asset%209.webp',
+            'assets/asset%2010.webp','assets/asset%2011.webp','assets/asset%2013.webp','assets/asset%2014.webp'
+        ];
+        const MARQUEE_ITEM_PX = 19 * 16; // 18rem width + 1rem gap
+        function buildMarquee(id, imgs) {
+            const el = document.getElementById(id);
+            if (!el) return;
+            // The CSS animation translates the track by exactly -50%, so the
+            // track must be two identical halves. Repeat the source images
+            // enough times per half so a half always covers the viewport,
+            // otherwise wide screens would show a gap once the loop repeats.
+            const repeatsPerHalf = Math.max(1, Math.ceil(window.innerWidth / (imgs.length * MARQUEE_ITEM_PX)));
+            const half = Array.from({ length: repeatsPerHalf }, () => imgs).flat();
+            const items = [...half, ...half];
+            items.forEach((src, i) => {
+                const item = document.createElement('div');
+                item.className = 'marquee-item';
+                item.innerHTML = `<img src="${src}" alt="Impulse Empresarial ${(i % imgs.length) + 1}" loading="lazy">`;
+                el.appendChild(item);
+            });
+        }
+        buildMarquee('marquee-row-1', GALLERY.slice(0, 6));
+        buildMarquee('marquee-row-2', GALLERY.slice(6));
+
+        /* ─── Vídeos depoimento ─── */
+        document.querySelectorAll('.depoimento-video-poster').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const id = this.dataset.youtube;
+                const frame = this.parentElement;
+                frame.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0" title="Depoimento Impulse" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+            });
+        });
+
+        /* ─── Countdown ─── */
+        const deadline = new Date('2026-07-28T23:59:59-03:00').getTime();
+        function updateCountdown() {
+            const now = Date.now();
+            const diff = Math.max(0, deadline - now);
+            const d = Math.floor(diff / 86400000);
+            const h = Math.floor((diff % 86400000) / 3600000);
+            const m = Math.floor((diff % 3600000) / 60000);
+            const s = Math.floor((diff % 60000) / 1000);
+            const pad = n => String(n).padStart(2, '0');
+            document.getElementById('cd-days').textContent = pad(d);
+            document.getElementById('cd-hours').textContent = pad(h);
+            document.getElementById('cd-mins').textContent = pad(m);
+            document.getElementById('cd-secs').textContent = pad(s);
+        }
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        /* ─── FAQ accordion ─── */
+        function toggleFaq(btn) {
+            const item = btn.closest('.faq-item');
+            const wasOpen = item.classList.contains('is-open');
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('is-open'));
+            if (!wasOpen) item.classList.add('is-open');
+        }
+
+        /* ─── Sticky CTA mobile ─── */
+        const stickyCta = document.getElementById('sticky-cta');
+        const hero = document.getElementById('hero');
+        if (stickyCta && hero) {
+            const obs = new IntersectionObserver(([e]) => {
+                stickyCta.classList.toggle('is-visible', !e.isIntersecting);
+            }, { threshold: 0 });
+            obs.observe(hero);
+        }
+
+        /* ─── Popup ─── */
+        const popup = document.getElementById('popup-captura');
+        const form = document.getElementById('form-captura-impulse');
+
+        function abrirPopup() {
+            preencherCamposTracking(form);
+            popup.classList.remove('hidden');
+            popup.classList.add('flex');
+            popup.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+        function fecharPopup() {
+            popup.classList.add('hidden');
+            popup.classList.remove('flex');
+            popup.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+        popup.addEventListener('click', e => { if (e.target === popup) fecharPopup(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') fecharPopup(); });
+
+        function preencherCamposTracking(f) {
+            const params = new URLSearchParams(window.location.search);
+            ['utm_source','utm_term','utm_campaign','utm_medium','utm_content'].forEach(c => {
+                const el = f.querySelector(`[name="${c}"]`);
+                if (el) el.value = params.get(c) || '';
+            });
+            const urlEl = f.querySelector('[name="url"]');
+            if (urlEl) urlEl.value = window.location.href;
+        }
+
+        function initMascaraTelefone(input, f) {
+            input.addEventListener('input', function(e) {
+                let v = e.target.value.replace(/\D/g, '');
+                if (v.startsWith('55') && v.length > 2) v = v.slice(2);
+                v = v.slice(0, 11);
+                let fmt = v;
+                if (v.length > 2) fmt = `(${v.slice(0,2)}) ` + v.slice(2);
+                if (v.length > 7) fmt = fmt.slice(0,10) + '-' + fmt.slice(10);
+                e.target.value = fmt;
+                const err = f.querySelector('.error-msg');
+                if (err) err.classList.add('hidden');
+            });
+        }
+
+        function buildCheckoutRedirectUrl(target, f, nome, email, rawPhone) {
+            const url = new URL(target);
+            url.searchParams.set('fn', nome);
+            url.searchParams.set('em', email);
+            url.searchParams.set('ph', rawPhone);
+            ['utm_source','utm_term','utm_campaign','utm_medium','utm_content'].forEach(c => {
+                const v = f.querySelector(`[name="${c}"]`)?.value || '';
+                if (v) url.searchParams.set(c, v);
+            });
+            return url.toString();
+        }
+
+        const telInput = form.querySelector('.mask-telefone');
+        initMascaraTelefone(telInput, form);
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = form.querySelector('.btn-submit');
+            const err = form.querySelector('.error-msg');
+            const checkout = form.dataset.checkout;
+            const webhook = form.dataset.webhook;
+            const produto = form.dataset.produto;
+            const raw = telInput.value.replace(/\D/g, '');
+            if (raw.length < 10) { err.classList.remove('hidden'); telInput.focus(); return; }
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Processando...';
+            const nome = form.querySelector('[name="nome"]').value.trim();
+            const email = form.querySelector('[name="email"]').value.trim();
+            const payload = {
+                nome, email,
+                telefone: '+55' + raw,
+                produto,
+                utm_source: form.querySelector('[name="utm_source"]')?.value || '',
+                utm_term: form.querySelector('[name="utm_term"]')?.value || '',
+                utm_campaign: form.querySelector('[name="utm_campaign"]')?.value || '',
+                utm_medium: form.querySelector('[name="utm_medium"]')?.value || '',
+                utm_content: form.querySelector('[name="utm_content"]')?.value || '',
+                url: form.querySelector('[name="url"]')?.value || window.location.href
+            };
+            const finalUrl = buildCheckoutRedirectUrl(checkout, form, nome, email, raw);
+            fetch(webhook, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
+                keepalive: true
+            }).catch(() => {});
+            window.location.href = finalUrl;
+        });
+    </script>
+</body>
+</html>
