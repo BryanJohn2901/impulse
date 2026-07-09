@@ -11,6 +11,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="preload" href="assets/img/logo.webp" as="image" type="image/webp">
+    <link rel="preload" href="assets/img/hero-bg-mobile.webp" as="image" type="image/webp" media="(max-width: 767px)">
+    <link rel="preload" href="assets/img/hero-bg-desktop.webp" as="image" type="image/webp" media="(min-width: 768px)">
     <link rel="preload" href="assets/fonts/nova-pro-2026-04-07-06-13-42-utc/NovaPro_EE/NovaPro-Regular.otf" as="font" type="font/otf" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -102,6 +105,22 @@
             font-weight: 500;
         }
 
+        .hero-overlay-base {
+            background: rgba(4, 14, 17, 0.35);
+        }
+        .hero-overlay-gradient {
+            background: linear-gradient(
+                180deg,
+                rgba(4, 14, 17, 0.15) 0%,
+                rgba(4, 14, 17, 0.45) 45%,
+                rgba(4, 14, 17, 0.82) 78%,
+                rgba(4, 14, 17, 0.95) 100%
+            );
+        }
+        .hero-overlay-vignette {
+            background: radial-gradient(ellipse at center 28%, transparent 0%, rgba(4, 14, 17, 0.55) 72%);
+        }
+
         .glass {
             background: linear-gradient(145deg, rgba(10,45,72,.55), rgba(4,14,17,.65));
             backdrop-filter: blur(18px);
@@ -156,7 +175,7 @@
         /* Hero halo */
         .hero-halo {
             position: absolute;
-            left: 50%; top: 42%;
+            left: 50%; top: 32%;
             transform: translate(-50%, -50%);
             width: min(90vw, 720px);
             height: min(90vw, 720px);
@@ -170,7 +189,7 @@
         }
         .hero-halo-ring {
             position: absolute;
-            left: 50%; top: 42%;
+            left: 50%; top: 32%;
             transform: translate(-50%, -50%);
             width: min(70vw, 520px);
             height: min(70vw, 520px);
@@ -398,18 +417,21 @@
     <div class="cursor-ring hidden lg:block" id="cursor-ring"></div>
 
     <!-- HERO -->
-    <header id="hero" class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-16 pb-16 md:pt-20 md:pb-20">
+    <header id="hero" class="relative min-h-screen flex flex-col items-center justify-end overflow-hidden pb-10 sm:pb-12 md:pb-16 lg:pb-20">
         <div class="absolute inset-0 z-0">
-            <img src="assets/asset%2024.webp" alt="" class="w-full h-full object-cover opacity-40" loading="eager" style="object-position: 60% 20%;">
-            <div class="absolute inset-0 bg-gradient-to-b from-brand-bg/80 via-brand-navy/40 to-brand-bg"></div>
-            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,103,183,0.15)_0%,#040e11_70%)]"></div>
+            <img src="assets/img/hero-bg-mobile.webp" alt="" class="md:hidden w-full h-full object-cover object-[center_12%]" loading="eager">
+            <img src="assets/img/hero-bg-desktop.webp" alt="" class="hidden md:block w-full h-full object-cover object-[center_15%]" loading="eager">
+            <div class="absolute inset-0 hero-overlay-base"></div>
+            <div class="absolute inset-0 hero-overlay-gradient"></div>
+            <div class="absolute inset-0 hero-overlay-vignette"></div>
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,103,183,0.08)_0%,transparent_65%)]"></div>
         </div>
         <div class="hero-halo"></div>
         <div class="hero-halo-ring"></div>
 
-        <div class="relative z-10 w-full container mx-auto px-6 max-w-content text-center">
+        <div class="relative z-10 w-full container mx-auto px-6 max-w-content text-center mt-auto pt-[calc(10rem+150px)] sm:pt-[calc(12rem+150px)] md:pt-[calc(14rem+150px)] lg:pt-[calc(16rem+150px)]">
             <div data-aos="fade-up">
-                <img src="assets/asset%200.webp" alt="Impulse Empresarial" class="h-20 md:h-28 w-auto mx-auto mb-8 drop-shadow-[0_0_40px_rgba(0,193,253,.25)]" loading="eager">
+                <img src="assets/img/logo.webp" alt="Impulse Empresarial" class="h-24 md:h-32 w-auto mx-auto mb-8 drop-shadow-[0_4px_24px_rgba(0,0,0,0.55)] drop-shadow-[0_0_48px_rgba(0,193,253,0.35)] brightness-110" loading="eager">
                 <p class="text-brand-primary text-xs font-bold uppercase tracking-[0.3em] mb-4">Mogi Mirim/SP · 29 de julho de 2026</p>
                 <h1 class="text-4xl md:text-5xl lg:text-[3.75rem] font-display font-light leading-[1.1] text-brand-textPrimary mb-5 tracking-wide max-w-4xl mx-auto">
                     Você já construiu uma empresa.<br class="hidden md:block">
@@ -453,7 +475,7 @@
                 Isso não acontece por falta de esforço. Acontece por falta de estrutura estratégica.
             </p>
             <div class="frame-glow max-w-4xl mx-auto" data-aos="zoom-in">
-                <img src="assets/asset%206.webp" alt="Impulse Empresarial" class="w-full aspect-[16/9] object-cover" loading="lazy">
+                <img src="assets/img/showcase-diagnostico.webp" alt="Impulse Empresarial" class="w-full h-auto object-cover" loading="lazy">
             </div>
         </div>
     </section>
@@ -464,7 +486,7 @@
             <div class="grid md:grid-cols-3 gap-6">
                 <div class="glass-glow rounded-2xl overflow-hidden card-lift" data-aos="fade-up">
                     <div class="aspect-[4/3] overflow-hidden">
-                        <img src="assets/asset%201.webp" alt="" class="w-full h-full object-cover opacity-80" loading="lazy">
+                        <img src="assets/img/pain-01.webp" alt="" class="w-full h-full object-cover opacity-80" loading="lazy">
                     </div>
                     <div class="p-6">
                         <span class="text-brand-primary/40 text-4xl font-display font-light block mb-3">01</span>
@@ -473,7 +495,7 @@
                 </div>
                 <div class="glass-glow rounded-2xl overflow-hidden card-lift" data-aos="fade-up" data-aos-delay="100">
                     <div class="aspect-[4/3] overflow-hidden">
-                        <img src="assets/asset%202.webp" alt="" class="w-full h-full object-cover opacity-80" loading="lazy">
+                        <img src="assets/img/pain-02.webp" alt="" class="w-full h-full object-cover opacity-80" loading="lazy">
                     </div>
                     <div class="p-6">
                         <span class="text-brand-primary/40 text-4xl font-display font-light block mb-3">02</span>
@@ -482,7 +504,7 @@
                 </div>
                 <div class="glass-glow rounded-2xl overflow-hidden card-lift" data-aos="fade-up" data-aos-delay="200">
                     <div class="aspect-[4/3] overflow-hidden">
-                        <img src="assets/asset%203.webp" alt="" class="w-full h-full object-cover opacity-80" loading="lazy">
+                        <img src="assets/img/pain-03.webp" alt="" class="w-full h-full object-cover opacity-80" loading="lazy">
                     </div>
                     <div class="p-6">
                         <span class="text-brand-primary/40 text-4xl font-display font-light block mb-3">03</span>
@@ -545,7 +567,7 @@
                 <div class="relative" data-aos="fade-left">
                     <div class="absolute inset-0 bg-brand-primary/15 rounded-3xl blur-[50px]"></div>
                     <div class="frame-glow relative">
-                        <img src="assets/asset%204.webp" alt="Empresário sob pressão" class="w-full aspect-[4/5] object-cover" loading="lazy">
+                        <img src="assets/img/comparison.webp" alt="Empresário sob pressão" class="w-full aspect-[4/5] object-cover" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -618,10 +640,10 @@
             </div>
             <div class="max-w-2xl mx-auto" data-aos="zoom-in">
                 <div class="gallery-grid">
-                    <img src="assets/asset%207.webp" alt="Impulse" loading="lazy">
-                    <img src="assets/asset%208.webp" alt="Impulse" loading="lazy">
-                    <img src="assets/asset%209.webp" alt="Impulse" loading="lazy">
-                    <img src="assets/asset%2010.webp" alt="Impulse" loading="lazy">
+                    <img src="assets/img/gallery-01.webp" alt="Impulse" loading="lazy">
+                    <img src="assets/img/gallery-02.webp" alt="Impulse" loading="lazy">
+                    <img src="assets/img/gallery-03.webp" alt="Impulse" loading="lazy">
+                    <img src="assets/img/gallery-04.webp" alt="Impulse" loading="lazy">
                     <div class="gallery-center-icon"><i class="fas fa-bolt"></i></div>
                 </div>
             </div>
@@ -645,7 +667,7 @@
                 <div class="glass-glow rounded-3xl overflow-hidden card-lift">
                     <div class="grid md:grid-cols-2">
                         <div class="aspect-[4/5] md:aspect-auto relative min-h-[320px]">
-                            <img src="assets/asset%2012.webp" alt="Mateus Ribeiro" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+                            <img src="assets/img/mentor.webp" alt="Mateus Ribeiro" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
                             <div class="absolute inset-0 bg-gradient-to-t from-brand-bg via-transparent to-transparent md:bg-gradient-to-r"></div>
                         </div>
                         <div class="p-6 md:p-8 flex flex-col justify-center">
@@ -948,7 +970,7 @@
             </button>
 
             <div class="mt-12 glass-glow rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center gap-6 text-left" data-aos="fade-up">
-                <img src="assets/asset%2012.webp" alt="Equipe do Impulse Empresarial" class="w-20 h-20 rounded-full object-cover border border-brand-primary/30 shrink-0" loading="lazy">
+                <img src="assets/img/mentor.webp" alt="Equipe do Impulse Empresarial" class="w-20 h-20 rounded-full object-cover border border-brand-primary/30 shrink-0" loading="lazy">
                 <div class="flex-1">
                     <p class="text-sm font-bold uppercase tracking-widest text-brand-primary mb-2">Fale com a nossa equipe</p>
                     <p class="text-brand-textSecondary text-sm mb-4">Ficou com alguma dúvida antes de decidir? Fale direto com a equipe do Impulse pelo WhatsApp.</p>
@@ -1027,7 +1049,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-12">
                 <div class="lg:col-span-4 space-y-4">
                     <a href="#hero" class="inline-block hover:opacity-80 transition-opacity mb-4">
-                        <img src="assets/asset%200.webp" alt="Impulse Empresarial" class="h-10 w-auto">
+                        <img src="assets/img/logo.webp" alt="Impulse Empresarial" class="h-10 w-auto">
                     </a>
                     <p class="text-brand-textSecondary text-sm leading-relaxed max-w-sm">
                         Encontro presencial de um dia para empresários que querem crescer com estrutura, clareza e decisão. Com Mateus Ribeiro.
@@ -1086,7 +1108,7 @@
                 <i class="fas fa-times"></i>
             </button>
             <div class="text-center mb-8">
-                <img src="assets/asset%200.webp" alt="Impulse Empresarial" class="h-16 w-auto mx-auto mb-4">
+                <img src="assets/img/logo.webp" alt="Impulse Empresarial" class="h-16 w-auto mx-auto mb-4">
                 <div class="text-brand-primary text-[10px] font-black uppercase tracking-[0.2em] mb-2">Impulse Empresarial</div>
                 <h3 class="font-display font-normal text-2xl text-brand-textPrimary tracking-wide mb-2">Garanta sua vaga</h3>
                 <p class="text-sm text-brand-textSecondary">Mogi Mirim/SP · 29/07/2026 · R$147</p>
