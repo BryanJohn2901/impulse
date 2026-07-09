@@ -193,32 +193,6 @@
             100% { transform: translateX(340%); }
         }
 
-        /* Hero halo */
-        .hero-halo {
-            position: absolute;
-            left: 50%; top: 32%;
-            transform: translate(-50%, -50%);
-            width: min(90vw, 720px);
-            height: min(90vw, 720px);
-            border-radius: 50%;
-            background:
-                radial-gradient(circle, rgba(0,193,253,.22) 0%, rgba(0,103,183,.1) 28%, transparent 62%),
-                radial-gradient(circle, transparent 42%, rgba(0,193,253,.12) 48%, transparent 58%);
-            filter: blur(2px);
-            animation: glow-pulse 4s ease-in-out infinite;
-            pointer-events: none;
-        }
-        .hero-halo-ring {
-            position: absolute;
-            left: 50%; top: 32%;
-            transform: translate(-50%, -50%);
-            width: min(70vw, 520px);
-            height: min(70vw, 520px);
-            border-radius: 50%;
-            border: 1px solid rgba(0,193,253,.2);
-            box-shadow: 0 0 60px rgba(0,193,253,.15), inset 0 0 60px rgba(0,193,253,.06);
-            pointer-events: none;
-        }
         .frame-glow {
             border: 1px solid rgba(0,193,253,.35);
             box-shadow: 0 0 40px rgba(0,193,253,.12), 0 24px 60px rgba(0,0,0,.5);
@@ -447,14 +421,11 @@
             <div class="absolute inset-0 hero-overlay-vignette"></div>
             <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,103,183,0.08)_0%,transparent_65%)]"></div>
         </div>
-        <div class="hero-halo"></div>
-        <div class="hero-halo-ring"></div>
-
         <div class="relative z-10 w-full container mx-auto px-6 max-w-content text-center mt-auto pt-[calc(10rem+150px)] sm:pt-[calc(12rem+150px)] md:pt-[calc(14rem+150px)] lg:pt-[calc(16rem+150px)]">
             <div data-aos="fade-up">
                 <img src="assets/img/logo.webp" alt="Impulse Empresarial" class="h-24 md:h-32 w-auto mx-auto mb-8 drop-shadow-[0_4px_24px_rgba(0,0,0,0.55)] drop-shadow-[0_0_48px_rgba(0,193,253,0.35)] brightness-110" loading="eager">
                 <p class="text-brand-primary text-xs font-bold uppercase tracking-[0.3em] mb-4">Mogi Mirim/SP · 29 de julho de 2026</p>
-                <h1 class="text-4xl md:text-5xl lg:text-[3.75rem] font-display font-light leading-[1.1] text-brand-textPrimary mb-5 tracking-wide max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-5xl lg:text-[3.75rem] font-display font-bold leading-[1.1] text-brand-textPrimary mb-5 tracking-wide max-w-4xl mx-auto">
                     Você já construiu uma empresa.<br class="hidden md:block">
                     Agora é hora de construir o <span class="title-accent">crescimento que ela merece.</span>
                 </h1>
