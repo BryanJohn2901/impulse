@@ -30,10 +30,15 @@ async function main() {
   const styleMatch = html.match(/<style>([\s\S]*?)<\/style>/);
   if (!styleMatch) throw new Error('Bloco <style> não encontrado em index.html');
   // dist/css/style.css fica um nível abaixo de dist/, então as fontes (dist/assets/fonts) precisam de "../"
-  const customCss = styleMatch[1].replace(
-    /assets\/fonts\/nova-pro-2026-04-07-06-13-42-utc\/NovaPro_EE\/(NovaPro-(?:Regular|Bold)\.otf)/g,
-    '../assets/fonts/$1'
-  );
+  const customCss = styleMatch[1]
+    .replace(
+      /assets\/fonts\/nova-pro-2026-04-07-06-13-42-utc\/NovaPro_EE\/(NovaPro-(?:Regular|Bold)\.otf)/g,
+      '../assets/fonts/$1'
+    )
+    .replace(
+      /assets\/fonts\/liferdas\/(Liferdas-[A-Za-z]+\.woff)/g,
+      '../assets/fonts/$1'
+    );
 
   const mainScriptMatch = html.match(/<script>\s*AOS\.init[\s\S]*?<\/script>/);
   if (!mainScriptMatch) throw new Error('Script principal (AOS.init...) não encontrado em index.html');
@@ -82,10 +87,15 @@ async function main() {
   const after = dirSize(path.join(DIST, 'assets', 'img'));
   console.log(`  assets/img: ${(before / 1024).toFixed(0)} kB -> ${(after / 1024).toFixed(0)} kB`);
 
-  console.log('Copiando fontes usadas (Nova Pro Regular/Bold)...');
+  console.log('Copiando fontes usadas (Nova Pro Regular/Bold, Liferdas)...');
   const fontSrcDir = path.join(ROOT, 'assets', 'fonts', 'nova-pro-2026-04-07-06-13-42-utc', 'NovaPro_EE');
   fs.copyFileSync(path.join(fontSrcDir, 'NovaPro-Regular.otf'), path.join(DIST, 'assets', 'fonts', 'NovaPro-Regular.otf'));
   fs.copyFileSync(path.join(fontSrcDir, 'NovaPro-Bold.otf'), path.join(DIST, 'assets', 'fonts', 'NovaPro-Bold.otf'));
+
+  const liferdasSrcDir = path.join(ROOT, 'assets', 'fonts', 'liferdas');
+  for (const file of fs.readdirSync(liferdasSrcDir)) {
+    fs.copyFileSync(path.join(liferdasSrcDir, file), path.join(DIST, 'assets', 'fonts', file));
+  }
 
   // ── 5. Monta o index.html final: remove CDN/config/style/script inline e aponta para os novos caminhos ──
   console.log('Montando index.html final...');
@@ -94,7 +104,8 @@ async function main() {
     .replace(/<script>\s*tailwind\.config[\s\S]*?<\/script>\n?/, '')
     .replace(/<style>[\s\S]*?<\/style>\n?/, '')
     .replace(/<script>\s*AOS\.init[\s\S]*?<\/script>/, '<script src="js/main.js"></script>')
-    .replace(/assets\/fonts\/nova-pro-2026-04-07-06-13-42-utc\/NovaPro_EE\/(NovaPro-(?:Regular|Bold)\.otf)/g, 'assets/fonts/$1');
+    .replace(/assets\/fonts\/nova-pro-2026-04-07-06-13-42-utc\/NovaPro_EE\/(NovaPro-(?:Regular|Bold)\.otf)/g, 'assets/fonts/$1')
+    .replace(/assets\/fonts\/liferdas\/(Liferdas-[A-Za-z]+\.woff)/g, 'assets/fonts/$1');
 
   // sanity check: nenhum third-party script foi removido
   for (const marker of [
@@ -102,7 +113,6 @@ async function main() {
     'window.dmq=window.dmq',
     'unpkg.com/aos@2.3.1/dist/aos.css',
     'unpkg.com/aos@2.3.1/dist/aos.js',
-    'fonts.googleapis.com',
     'cdnjs.cloudflare.com/ajax/libs/font-awesome'
   ]) {
     if (!html.includes(marker)) throw new Error(`Script/link de terceiro removido acidentalmente: ${marker}`);

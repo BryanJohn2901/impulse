@@ -27,7 +27,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Nova Pro', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        display: ['Cormorant Garamond', 'Georgia', 'serif']
+        display: ['Liferdas', 'Georgia', 'serif']
       },
       animation: {
         shimmer: 'shimmer 1.6s infinite',

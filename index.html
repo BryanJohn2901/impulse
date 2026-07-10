@@ -24,13 +24,11 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://unpkg.com">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
     <link rel="preload" href="assets/img/logo.webp" as="image" type="image/webp">
     <link rel="preload" href="assets/img/hero-bg-mobile.webp" as="image" type="image/webp" media="(max-width: 767px)">
     <link rel="preload" href="assets/img/hero-bg-desktop.webp" as="image" type="image/webp" media="(min-width: 768px)">
     <link rel="preload" href="assets/fonts/nova-pro-2026-04-07-06-13-42-utc/NovaPro_EE/NovaPro-Regular.otf" as="font" type="font/otf" crossorigin>
+    <link rel="preload" href="assets/fonts/liferdas/Liferdas-Bold.woff" as="font" type="font/woff" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -63,7 +61,7 @@
                     },
                     fontFamily: {
                         sans: ['Nova Pro', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-                        display: ['Cormorant Garamond', 'Georgia', 'serif'],
+                        display: ['Liferdas', 'Georgia', 'serif'],
                     },
                     animation: {
                         shimmer: 'shimmer 1.6s infinite',
@@ -97,6 +95,31 @@
             src: url('assets/fonts/nova-pro-2026-04-07-06-13-42-utc/NovaPro_EE/NovaPro-Bold.otf') format('opentype');
             font-weight: 700; font-style: normal; font-display: swap;
         }
+        @font-face {
+            font-family: 'Liferdas';
+            src: url('assets/fonts/liferdas/Liferdas-Light.woff') format('woff');
+            font-weight: 300; font-style: normal; font-display: swap;
+        }
+        @font-face {
+            font-family: 'Liferdas';
+            src: url('assets/fonts/liferdas/Liferdas-Regular.woff') format('woff');
+            font-weight: 400; font-style: normal; font-display: swap;
+        }
+        @font-face {
+            font-family: 'Liferdas';
+            src: url('assets/fonts/liferdas/Liferdas-Medium.woff') format('woff');
+            font-weight: 500; font-style: normal; font-display: swap;
+        }
+        @font-face {
+            font-family: 'Liferdas';
+            src: url('assets/fonts/liferdas/Liferdas-MediumItalic.woff') format('woff');
+            font-weight: 500; font-style: italic; font-display: swap;
+        }
+        @font-face {
+            font-family: 'Liferdas';
+            src: url('assets/fonts/liferdas/Liferdas-Bold.woff') format('woff');
+            font-weight: 700; font-style: normal; font-display: swap;
+        }
 
         html { scrollbar-width: thin; scrollbar-color: #0067b7 #040e11; }
         ::-webkit-scrollbar { width: 10px; }
@@ -104,7 +127,7 @@
         ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #00c1fd 0%, #0067b7 55%, #00509c 100%); border-radius: 9999px; border: 2px solid #040e11; }
 
         h1, h2, h3, h4 {
-            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-family: 'Liferdas', Georgia, serif;
             font-weight: 400;
             letter-spacing: 0.02em;
         }
@@ -122,21 +145,6 @@
             font-weight: 500;
         }
 
-        .hero-overlay-base {
-            background: rgba(4, 14, 17, 0.35);
-        }
-        .hero-overlay-gradient {
-            background: linear-gradient(
-                180deg,
-                rgba(4, 14, 17, 0.15) 0%,
-                rgba(4, 14, 17, 0.45) 45%,
-                rgba(4, 14, 17, 0.82) 78%,
-                rgba(4, 14, 17, 0.95) 100%
-            );
-        }
-        .hero-overlay-vignette {
-            background: radial-gradient(ellipse at center 28%, transparent 0%, rgba(4, 14, 17, 0.55) 72%);
-        }
 
         .glass {
             background: linear-gradient(145deg, rgba(10,45,72,.55), rgba(4,14,17,.65));
@@ -218,30 +226,12 @@
             position: relative; z-index: 2;
         }
 
-        /* Method ring */
-        .method-ring {
-            width: min(100%, 420px);
-            aspect-ratio: 1;
-            border-radius: 50%;
-            border: 2px solid rgba(0,193,253,.35);
-            box-shadow: 0 0 80px rgba(0,193,253,.18), inset 0 0 60px rgba(0,193,253,.08);
-            background:
-                radial-gradient(circle at center, rgba(0,193,253,.12) 0%, transparent 55%),
-                radial-gradient(circle at center, transparent 58%, rgba(0,193,253,.08) 62%, transparent 70%);
-            position: relative;
-        }
-        .method-ring::before {
-            content: '';
-            position: absolute; inset: 12%;
-            border-radius: 50%;
-            border: 1px solid rgba(0,193,253,.2);
-        }
-        .method-ring-core {
-            position: absolute; inset: 28%;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(0,193,253,.25), transparent 70%);
-            display: flex; align-items: center; justify-content: center;
-            text-align: center;
+        /* Method background */
+        .method-bg {
+            background-image: linear-gradient(rgba(4,14,17,.72), rgba(4,14,17,.72)), url('assets/img/metodo-bg.webp');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
 
         .grid-divider {
@@ -352,7 +342,7 @@
 
         .timer-digit {
             font-variant-numeric: tabular-nums;
-            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-family: 'Liferdas', Georgia, serif;
             font-size: clamp(1.75rem, 4vw, 2.5rem);
             font-weight: 300;
             color: #00c1fd;
@@ -416,18 +406,15 @@
         <div class="absolute inset-0 z-0">
             <img src="assets/img/hero-bg-mobile.webp" alt="Empresário em ambiente corporativo, representando o Impulse Empresarial" class="md:hidden w-full h-full object-cover object-[center_12%]" loading="eager">
             <img src="assets/img/hero-bg-desktop.webp" alt="Empresário em ambiente corporativo, representando o Impulse Empresarial" class="hidden md:block w-full h-full object-cover object-[center_15%]" loading="eager">
-            <div class="absolute inset-0 hero-overlay-base"></div>
-            <div class="absolute inset-0 hero-overlay-gradient"></div>
-            <div class="absolute inset-0 hero-overlay-vignette"></div>
             <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,103,183,0.08)_0%,transparent_65%)]"></div>
         </div>
-        <div class="relative z-10 w-full container mx-auto px-6 max-w-content text-center mt-auto pt-[calc(10rem+150px)] sm:pt-[calc(12rem+150px)] md:pt-[calc(14rem+150px)] lg:pt-[calc(16rem+150px)]">
+        <div class="relative z-10 w-full container mx-auto px-6 max-w-content text-center mt-auto pt-[calc(10rem+350px)] sm:pt-[calc(12rem+350px)] md:pt-[calc(14rem+350px)] lg:pt-[calc(16rem+350px)]">
             <div data-aos="fade-up">
                 <img src="assets/img/logo.webp" alt="Impulse Empresarial" class="h-24 md:h-32 w-auto mx-auto mb-8 drop-shadow-[0_4px_24px_rgba(0,0,0,0.55)] drop-shadow-[0_0_48px_rgba(0,193,253,0.35)] brightness-110" loading="eager">
-                <p class="text-brand-primary text-xs font-bold uppercase tracking-[0.3em] mb-4">Mogi Mirim/SP · 29 de julho de 2026</p>
-                <h1 class="text-4xl md:text-5xl lg:text-[3.75rem] font-display font-bold leading-[1.1] text-brand-textPrimary mb-5 tracking-wide max-w-4xl mx-auto">
+                <p class="inline-block glass rounded-full px-5 py-2 text-brand-primary text-xs font-bold uppercase tracking-[0.3em] mb-4">Mogi Mirim/SP · 29 de julho de 2026</p>
+                <h1 style="line-height:60px" class="text-3xl md:text-4xl lg:text-[3.25rem] font-display font-bold text-brand-textPrimary mb-5 tracking-wide max-w-4xl mx-auto">
                     Você já construiu uma empresa.<br class="hidden md:block">
-                    Agora é hora de construir o <span class="title-accent">crescimento que ela merece.</span>
+                    Agora é hora de construir o <span class="title-accent">crescimento que ela merece</span>
                 </h1>
                 <p class="text-base md:text-lg text-brand-textSecondary max-w-2xl mx-auto font-light leading-relaxed mb-8">
                     Um encontro presencial de um dia para empresários que faturam, têm equipe e responsabilidade, mas sentem que o negócio está operando abaixo do que poderia. Com Mateus Ribeiro.
@@ -680,7 +667,7 @@
     </section>
 
     <!-- METHOD RING -->
-    <section id="conteudo" class="py-20 md:py-28 relative overflow-hidden">
+    <section id="conteudo" class="py-20 md:py-28 relative overflow-hidden method-bg">
         <div class="container mx-auto px-6 max-w-content">
             <div class="text-center mb-14" data-aos="fade-up">
                 <p class="section-eyebrow">O encontro</p>
@@ -692,33 +679,24 @@
             <div class="grid lg:grid-cols-3 gap-8 items-center">
                 <div class="space-y-8 text-right hidden lg:block" data-aos="fade-right">
                     <div>
-                        <h4 class="font-display font-normal text-brand-textPrimary mb-1">Diagnóstico de Realidade</h4>
+                        <h4 class="font-display font-normal text-lg text-brand-textPrimary mb-1">Diagnóstico de Realidade</h4>
                         <p class="text-brand-textSecondary text-sm">Leitura fria de onde seu negócio está perdendo dinheiro, energia e foco.</p>
                     </div>
                     <div>
-                        <h4 class="font-display font-normal text-brand-textPrimary mb-1">Onde está travando o seu crescimento</h4>
+                        <h4 class="font-display font-normal text-lg text-brand-textPrimary mb-1">Onde está travando o seu crescimento</h4>
                         <p class="text-brand-textSecondary text-sm">Identificação clara entre urgência e prioridade, esforço e resultado.</p>
                     </div>
                 </div>
 
-                <div class="flex justify-center" data-aos="zoom-in">
-                    <div class="method-ring">
-                        <div class="method-ring-core">
-                            <div>
-                                <p class="text-brand-primary text-xs font-bold uppercase tracking-[0.25em] mb-2">Sistema</p>
-                                <p class="text-2xl font-display font-normal text-brand-textPrimary leading-tight">Impulse<br>Empresarial</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div class="flex justify-center min-h-[280px] sm:min-h-[360px] lg:min-h-[420px]" data-aos="zoom-in"></div>
 
                 <div class="space-y-8 text-left hidden lg:block" data-aos="fade-left">
                     <div>
-                        <h4 class="font-display font-normal text-brand-textPrimary mb-1">Clareza de Prioridades</h4>
+                        <h4 class="font-display font-normal text-lg text-brand-textPrimary mb-1">Clareza de Prioridades</h4>
                         <p class="text-brand-textSecondary text-sm">O que organizar primeiro para o negócio voltar a crescer.</p>
                     </div>
                     <div>
-                        <h4 class="font-display font-normal text-brand-textPrimary mb-1">Plano de 90 Dias</h4>
+                        <h4 class="font-display font-normal text-lg text-brand-textPrimary mb-1">Plano de 90 Dias</h4>
                         <p class="text-brand-textSecondary text-sm">Direção prática para aplicar a partir do dia seguinte ao evento.</p>
                     </div>
                 </div>
@@ -1107,7 +1085,7 @@
             </div>
             <form id="form-captura-impulse" class="space-y-4 mt-6 popup-form"
                 data-checkout="https://payfast.greenn.com.br/pre-checkout/xyjqn29"
-                data-webhook="https://hook.us2.make.com/6qaglponybteo2l6d187c5p91i7r1tae?produto=impulse-mogi-mirim"
+                data-webhook="https://hook.us2.make.com/6qaglponybteo2l6d187c5p91i7r1tae?produto=impo"
                 data-produto="Impulse Empresarial — Mogi Mirim/SP">
                 <div>
                     <label for="lead-nome" class="block text-sm font-medium text-gray-300 mb-1">Nome</label>
