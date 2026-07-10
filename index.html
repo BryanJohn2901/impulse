@@ -121,6 +121,7 @@
             font-weight: 700; font-style: normal; font-display: swap;
         }
 
+        html, body { max-width: 100%; overflow-x: hidden; }
         html { scrollbar-width: thin; scrollbar-color: #0067b7 #040e11; }
         ::-webkit-scrollbar { width: 10px; }
         ::-webkit-scrollbar-track { background: #040e11; }
@@ -323,8 +324,11 @@
             background: linear-gradient(90deg, transparent, rgba(0,193,253,.2), transparent);
         }
         .timer-unit {
-            min-width: 4.5rem;
+            min-width: 3rem;
             text-align: center;
+        }
+        @media (min-width: 480px) {
+            .timer-unit { min-width: 4.5rem; }
         }
         .timer-sep {
             color: rgba(0,193,253,.25);
@@ -349,12 +353,6 @@
             letter-spacing: 0.06em;
             line-height: 1;
         }
-
-        .sticky-cta {
-            transform: translateY(100%);
-            transition: transform .35s ease;
-        }
-        .sticky-cta.is-visible { transform: translateY(0); }
 
         .icon-orb {
             width: 3.5rem; height: 3.5rem;
@@ -443,7 +441,7 @@
     </header>
 
     <!-- SHOWCASE -->
-    <section class="py-20 md:py-28 relative">
+    <section class="py-20 md:py-28 relative overflow-hidden">
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-cyan/5 rounded-full blur-[120px] pointer-events-none"></div>
         <div class="container mx-auto px-6 max-w-content relative z-10 text-center">
             <p class="section-eyebrow" data-aos="fade-up">Diagnóstico</p>
@@ -688,7 +686,7 @@
                     </div>
                 </div>
 
-                <div class="flex justify-center min-h-[280px] sm:min-h-[360px] lg:min-h-[420px]" data-aos="zoom-in"></div>
+                <div class="hidden lg:flex justify-center lg:min-h-[420px]" data-aos="zoom-in"></div>
 
                 <div class="space-y-8 text-left hidden lg:block" data-aos="fade-left">
                     <div>
@@ -853,7 +851,7 @@
 
             <div class="text-center mb-14" data-aos="fade-up">
                 <p class="text-[11px] font-medium uppercase tracking-[0.28em] text-brand-textMuted mb-6">Inscrições encerram em</p>
-                <div class="flex items-end justify-center gap-3 md:gap-5" id="countdown">
+                <div class="flex items-end justify-center gap-1.5 sm:gap-3 md:gap-5" id="countdown">
                     <div class="timer-unit">
                         <span class="timer-digit block" id="cd-days">00</span>
                         <span class="text-[10px] uppercase tracking-[0.2em] text-brand-textMuted mt-2 block">Dias</span>
@@ -1063,13 +1061,6 @@
         </div>
     </footer>
 
-    <!-- STICKY CTA MOBILE -->
-    <div id="sticky-cta" class="sticky-cta fixed bottom-0 left-0 right-0 z-40 md:hidden p-4 bg-brand-bg/95 backdrop-blur-xl border-t border-white/10">
-        <button type="button" onclick="abrirPopup()" class="btn-shimmer btn-gold btn-pill w-full text-xs">
-            Garantir vaga por R$147
-        </button>
-    </div>
-
     <!-- POPUP CAPTURA -->
     <div id="popup-captura" class="popup-captura fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-brand-bg/90 backdrop-blur-xl" aria-hidden="true">
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand-cyan/10 rounded-full blur-[100px] pointer-events-none"></div>
@@ -1177,16 +1168,6 @@
             const wasOpen = item.classList.contains('is-open');
             document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('is-open'));
             if (!wasOpen) item.classList.add('is-open');
-        }
-
-        /* ─── Sticky CTA mobile ─── */
-        const stickyCta = document.getElementById('sticky-cta');
-        const hero = document.getElementById('hero');
-        if (stickyCta && hero) {
-            const obs = new IntersectionObserver(([e]) => {
-                stickyCta.classList.toggle('is-visible', !e.isIntersecting);
-            }, { threshold: 0 });
-            obs.observe(hero);
         }
 
         /* ─── Popup ─── */
