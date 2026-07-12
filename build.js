@@ -29,16 +29,18 @@ async function main() {
   // ── 1. Extrai o <style> customizado e o <script> de config do Tailwind ──
   const styleMatch = html.match(/<style>([\s\S]*?)<\/style>/);
   if (!styleMatch) throw new Error('Bloco <style> não encontrado em index.html');
-  // dist/css/style.css fica um nível abaixo de dist/, então as fontes (dist/assets/fonts) precisam de "../"
+  // dist/css/style.css fica um nível abaixo de dist/, então QUALQUER referência a assets/
+  // (fontes, imagens de background, etc.) precisa de "../" na frente.
   const customCss = styleMatch[1]
     .replace(
       /assets\/fonts\/nova-pro-2026-04-07-06-13-42-utc\/NovaPro_EE\/(NovaPro-(?:Regular|Bold)\.otf)/g,
-      '../assets/fonts/$1'
+      'assets/fonts/$1'
     )
     .replace(
       /assets\/fonts\/liferdas\/(Liferdas-[A-Za-z]+\.woff)/g,
-      '../assets/fonts/$1'
-    );
+      'assets/fonts/$1'
+    )
+    .replace(/url\((['"]?)assets\//g, 'url($1../assets/');
 
   const mainScriptMatch = html.match(/<script>\s*AOS\.init[\s\S]*?<\/script>/);
   if (!mainScriptMatch) throw new Error('Script principal (AOS.init...) não encontrado em index.html');
@@ -113,7 +115,9 @@ async function main() {
     'window.dmq=window.dmq',
     'unpkg.com/aos@2.3.1/dist/aos.css',
     'unpkg.com/aos@2.3.1/dist/aos.js',
-    'cdnjs.cloudflare.com/ajax/libs/font-awesome'
+    'cdnjs.cloudflare.com/ajax/libs/font-awesome',
+    'googletagmanager.com/gtm.js',
+    'googletagmanager.com/ns.html'
   ]) {
     if (!html.includes(marker)) throw new Error(`Script/link de terceiro removido acidentalmente: ${marker}`);
   }
