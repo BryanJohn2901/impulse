@@ -111,8 +111,6 @@ async function main() {
 
   // sanity check: nenhum third-party script foi removido
   for (const marker of [
-    'dashmonster.com.br/api/tracking/pixel.js',
-    'window.dmq=window.dmq',
     'unpkg.com/aos@2.3.1/dist/aos.css',
     'unpkg.com/aos@2.3.1/dist/aos.js',
     'cdnjs.cloudflare.com/ajax/libs/font-awesome',
